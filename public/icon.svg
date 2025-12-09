@@ -1,0 +1,20 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" rx="30" fill="#050505"/>
+  <style>
+    .glow {
+      fill: none;
+      stroke: #00eaff;
+      stroke-width: 9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 12px #00eaff);
+    }
+  </style>
+  
+  <!-- E -->
+  <path class="glow" d="M45 45 V135 M45 45 H95 M45 90 H85 M45 135 H95"/>
+  
+  <!-- A with futuristic peak -->
+  <path class="glow" d="M135 135 L110 135 L135 45 L160 135 Z"/>
+  <path class="glow" d="M120 105 H150"/>
+</svg>

@@ -10,6 +10,7 @@ import Projects from './pages/Projects/Projects.jsx'
 import ProjectDetails from './pages/Projects/ProjectDetails.jsx'
 import Contact from './pages/Contact/Contact.jsx'
 import { Toaster } from 'react-hot-toast'
+import ErrorPage from './pages/ErrorPage/ErrorPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         Component: Contact
+      },
+      {
+        path: "*",
+        Component: ErrorPage
       }
     ]
   }
