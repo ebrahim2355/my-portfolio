@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+/* enable DaisyUI */
+@plugin "daisyui";
+
+/* custom DaisyUI theme (NO tailwind.config.js needed) */
+@plugin "daisyui/theme" {
+  name: "neon";
+  default: true;
+  color-scheme: dark;
+
+  /* ✨ Base Background */
+  --color-base-100: #0a0a0f;
+  --color-base-200: #111118;
+  --color-base-300: #1a1a25;
+  --color-base-content: #e4e4e4;
+
+  /* ✨ Neon Colors */
+  --color-primary: #00eaff;
+  /* Neon Cyan */
+  --color-primary-content: #00181c;
+
+  --color-secondary: #b400ff;
+  /* Electric Purple */
+  --color-secondary-content: #2b0035;
+
+  --color-accent: #ff00aa;
+  /* Neon Magenta */
+  --color-accent-content: #240018;
+
+  --color-info: #0085ff;
+  --color-success: #00ffcc;
+  --color-warning: #ffaa00;
+  --color-error: #ff0055;
+
+  /* ✨ Borders */
+  --radius-selector: 1rem;
+  --radius-box: 0.75rem;
+  --radius-field: 0.25rem;
+
+  /* ✨ Glow intensity */
+  --depth: 1.5;
+  --noise: 0;
+}
+
+/* Neon glow utility you can apply anywhere */
+.glow {
+  filter: drop-shadow(0 0 10px var(--color-primary));
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--color-primary);
+  box-shadow: 0 0 8px var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.magnetic {
+  position: relative;
+  transition: transform 0.15s ease-out;
+}
+
+
+.nav-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translate(0, 0);
+  /* baseline before JS changes */
+  transition: transform 0.1s ease-out;
+}
+
+.nav-particles span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 8px var(--color-primary));
+  animation: waveMove 6s infinite ease-in-out,
+    pulseColor 4s infinite ease-in-out;
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(50px) translateX(20px) scale(0.2);
+    opacity: 0;
+  }
+}
+
+/* === GLOW UTILITIES === */
+.glow {
+  filter: drop-shadow(0 0 10px var(--color-primary));
+}
+
+.flicker {
+  animation: flickerAnim 2.5s infinite;
+}
+
+@keyframes flickerAnim {
+  0% {
+    opacity: 1;
+  }
+
+  5% {
+    opacity: 0.4;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  20% {
+    opacity: 0.6;
+  }
+
+  30% {
+    opacity: 1;
+  }
+}
+
+/* === NEON EDGE EFFECT === */
+.neon-edge {
+  position: relative;
+}
+
+.neon-edge::before,
+.neon-edge::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--color-primary);
+  box-shadow: 0 0 12px var(--color-primary);
+  animation: edgeGlow 3s infinite alternate;
+}
+
+.neon-edge::before {
+  top: 0;
+}
+
+.neon-edge::after {
+  bottom: 0;
+}
+
+@keyframes edgeGlow {
+  0% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes waveMove {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.3;
+  }
+
+  25% {
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translateY(-20px) translateX(10px) scale(1.3);
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(20px) translateX(-10px) scale(0.7);
+    opacity: 0.2;
+  }
+}
+
+@keyframes pulseColor {
+  0% {
+    background: var(--color-primary);
+  }
+
+  50% {
+    background: var(--color-secondary);
+  }
+
+  100% {
+    background: var(--color-primary);
+  }
+}
+
+.btn-neon {
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+.btn-neon:hover {
+  box-shadow: 0 0 20px var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.btn-neon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, var(--color-primary), transparent 70%);
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.btn-neon:hover::after {
+  opacity: 0.4;
+}

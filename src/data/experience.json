@@ -1,0 +1,15 @@
+[
+    {
+        "year": "2023–Present",
+        "role": "Frontend Developer",
+        "company": "Freelance",
+        "location": "Remote",
+        "type": "Freelance",
+        "description": "Building modern UI, animations, and full-stack applications for clients worldwide.",
+        "skillsUsed": [
+            "React",
+            "Tailwind",
+            "Node.js"
+        ]
+    }
+]

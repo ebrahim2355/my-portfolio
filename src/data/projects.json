@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "Neon Portfolio",
+        "description": "A glowing futuristic personal portfolio built with React, DaisyUI and Framer Motion.",
+        "image": "/images/neon-portfolio.png",
+        "tech": [
+            "React",
+            "Tailwind",
+            "Framer Motion"
+        ],
+        "live": "https://example.com",
+        "github": "https://github.com/username/neon-portfolio",
+        "featured": true
+    },
+    {
+        "id": 2,
+        "title": "Task Manager App",
+        "description": "A modern task management dashboard with drag & drop, filters, and animations.",
+        "image": "/images/task-manager.png",
+        "tech": [
+            "React",
+            "Firebase",
+            "Tailwind"
+        ],
+        "live": "https://example.com",
+        "github": "https://github.com/username/task-manager",
+        "featured": true
+    }
+]
