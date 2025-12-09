@@ -43,6 +43,12 @@
   --noise: 0;
 }
 
+html,
+body {
+  overflow-x: hidden !important;
+}
+
+
 /* Neon glow utility you can apply anywhere */
 .glow {
   filter: drop-shadow(0 0 10px var(--color-primary));
@@ -226,8 +232,8 @@
 }
 
 .btn-neon:hover {
-  box-shadow: 0 0 20px var(--color-primary);
-  transform: translateY(-2px);
+  box-shadow: 0 0 22px var(--color-primary);
+  transform: translateY(-3px);
 }
 
 .btn-neon::after {
@@ -241,4 +247,34 @@
 
 .btn-neon:hover::after {
   opacity: 0.4;
+}
+
+@keyframes footerFloat {
+  0% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+
+@keyframes scanLineAnim {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-scanLine {
+  animation: scanLineAnim 3.5s linear infinite;
 }

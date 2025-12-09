@@ -26,5 +26,19 @@
         "live": "https://example.com",
         "github": "https://github.com/username/task-manager",
         "featured": true
+    },
+    {
+        "id": 3,
+        "title": "Task Manager App",
+        "description": "A modern task management dashboard with drag & drop, filters, and animations.",
+        "image": "/images/task-manager.png",
+        "tech": [
+            "React",
+            "Firebase",
+            "Tailwind"
+        ],
+        "live": "https://example.com",
+        "github": "https://github.com/username/task-manager",
+        "featured": true
     }
 ]

@@ -6,6 +6,24 @@
         "icon": "react"
     },
     {
+        "name": "Tailwind CSS",
+        "level": 90,
+        "category": "Frontend",
+        "icon": "tailwind"
+    },
+    {
+        "name": "JavaScript",
+        "level": 90,
+        "category": "Frontend",
+        "icon": ""
+    },
+    {
+        "name": "Firebase",
+        "level": 90,
+        "category": "Frontend",
+        "icon": ""
+    },
+    {
         "name": "Node.js",
         "level": 80,
         "category": "Backend",
@@ -18,15 +36,15 @@
         "icon": "mongodb"
     },
     {
-        "name": "Tailwind CSS",
-        "level": 90,
-        "category": "Frontend",
-        "icon": "tailwind"
-    },
-    {
         "name": "Express.js",
         "level": 75,
         "category": "Backend",
         "icon": "express"
+    },
+    {
+        "name": "JWT",
+        "level": 75,
+        "category": "Backend",
+        "icon": ""
     }
 ]
