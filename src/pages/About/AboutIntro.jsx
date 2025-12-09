@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import myPhoto from "../../assets/my-photo.jpg";
+import { FaDownload } from "react-icons/fa6";
 
 export default function AboutIntro() {
     return (
@@ -31,7 +32,9 @@ export default function AboutIntro() {
                 </p>
 
                 <div className="mt-6 flex gap-4 flex-wrap">
-                    <a href="/resume.pdf" download className="btn btn-primary btn-neon px-6">Download CV</a>
+                    <a href="/resume.pdf" download="Ebrahim-Ali-resume.pdf" className="btn btn-primary btn-neon px-6">
+                        <FaDownload />
+                        Download CV</a>
                     <a href="/contact" className="btn btn-secondary btn-neon px-6">Contact Me</a>
                 </div>
             </motion.div>

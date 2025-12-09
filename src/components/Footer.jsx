@@ -108,7 +108,7 @@ export default function Footer() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="mt-10 flex justify-center gap-6 flex-wrap text-base-content/70"
                 >
-                    {["Home", "About", "Projects", "Experience", "Contact"].map((t) => (
+                    {["Home", "About", "Projects", "Contact"].map((t) => (
                         <a key={t} href={`/${t.toLowerCase()}`} className="hover:text-primary transition">
                             {t}
                         </a>

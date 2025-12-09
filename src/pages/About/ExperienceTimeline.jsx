@@ -6,7 +6,7 @@ export default function ExperienceTimeline() {
         <section className="relative py-10 md:py-20 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl text-primary glow font-bold mb-10">Experience</h2>
 
-            <div className="relative ml-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-primary/30">
+            <div className="relative ml-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-primary/30">
                 {experience.map((exp, i) => (
                     <motion.div
                         key={i}

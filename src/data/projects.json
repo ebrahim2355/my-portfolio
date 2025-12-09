@@ -1,44 +1,68 @@
 [
     {
         "id": 1,
-        "title": "Neon Portfolio",
-        "description": "A glowing futuristic personal portfolio built with React, DaisyUI and Framer Motion.",
-        "image": "/images/neon-portfolio.png",
+        "title": "AssetVerse — HR & Asset Management Platform",
+        "description": "A full-stack HR & asset management system designed for companies to manage employees, assets, requests, affiliations, analytics dashboards, and subscription packages. Built with secure authentication, real-time route protection, and a fully responsive modern UI.",
+        "image": "https://i.ibb.co.com/S4mMfZTM/assetverse-netlify-app-1.png",
         "tech": [
             "React",
             "Tailwind",
-            "Framer Motion"
+            "Firebase",
+            "Express.js",
+            "Framer Motion",
+            "MongoDB",
+            "JWT",
+            "Stripe",
+            "TanStack Query",
+            "Node.js"
         ],
-        "live": "https://example.com",
-        "github": "https://github.com/username/neon-portfolio",
-        "featured": true
+        "live": "https://assetverse.netlify.app",
+        "github": "https://github.com/ebrahim2355/assetverse-client",
+        "featured": true,
+        "screenshots": [
+            "https://i.ibb.co.com/S4mMfZTM/assetverse-netlify-app-1.png",
+            "https://i.ibb.co.com/KpwwsBbf/assetverse-netlify-app-2.png"
+        ]
     },
     {
         "id": 2,
-        "title": "Task Manager App",
-        "description": "A modern task management dashboard with drag & drop, filters, and animations.",
-        "image": "/images/task-manager.png",
+        "title": "Cleanliness & Issue Reporting Portal",
+        "description": "A web platform where users can report local issues, track complaint status, and communicate with authorities in real time. Designed to improve community cleanliness and public services.",
+        "image": "https://i.ibb.co.com/Y4qqyqJP/cleanliness-and-issue-web-app-3.png",
         "tech": [
             "React",
             "Firebase",
-            "Tailwind"
+            "Tailwind",
+            "Node.js",
+            "MongoDB",
+            "Express.js"
         ],
-        "live": "https://example.com",
-        "github": "https://github.com/username/task-manager",
-        "featured": true
+        "live": "https://cleanliness-and-issue.web.app",
+        "github": "https://github.com/ebrahim2355/cleanliness-and-issue-reporting-client-portal",
+        "featured": true,
+        "screenshots": [
+            "https://i.ibb.co.com/Y4qqyqJP/cleanliness-and-issue-web-app-3.png",
+            "https://i.ibb.co.com/1fFMsB7N/cleanliness-and-issue-web-app-4.png"
+        ]
     },
     {
         "id": 3,
-        "title": "Task Manager App",
-        "description": "A modern task management dashboard with drag & drop, filters, and animations.",
-        "image": "/images/task-manager.png",
+        "title": "Local Food Lovers Network",
+        "description": "A community-driven platform where users explore local food spots, share reviews, and connect with nearby food lovers.",
+        "image": "https://i.ibb.co.com/nsS3Gxcq/local-food-lovers-networ-7125e-web-app.png",
         "tech": [
             "React",
             "Firebase",
-            "Tailwind"
+            "Tailwind",
+            "Node.js",
+            "MongoDB",
+            "Express.js"
         ],
-        "live": "https://example.com",
-        "github": "https://github.com/username/task-manager",
-        "featured": true
+        "live": "https://local-food-lovers-networ-7125e.web.app",
+        "github": "https://github.com/ebrahim2355/local-food-lovers-network-client",
+        "featured": true,
+        "screenshots": [
+            "https://i.ibb.co.com/nsS3Gxcq/local-food-lovers-networ-7125e-web-app.png"
+        ]
     }
 ]
