@@ -40,7 +40,7 @@ export default function FeaturedProjects() {
                         <div className="h-52 w-full overflow-hidden">
                             <img
                                 src={p.image}
-                                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                                className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-500"
                                 alt={p.title}
                             />
                         </div>
