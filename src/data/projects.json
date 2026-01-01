@@ -12,6 +12,7 @@
             "Framer Motion",
             "MongoDB",
             "JWT",
+            "Recharts",
             "Stripe",
             "TanStack Query",
             "Node.js"
@@ -26,6 +27,31 @@
     },
     {
         "id": 2,
+        "title": "ClubNest: Community Club and Event Management Platform",
+        "description": "ClubNest is a vibrant community platform that enables users to discover, join, create, and manage local clubs and events. It connects people with shared passions, allowing them to organize meetups, workshops, and social gatherings while fostering real-world connections.",
+        "image": "https://i.ibb.co.com/p6SRBfsr/Club-Nest-Homepage.png",
+        "tech": [
+            "React",
+            "Tailwind",
+            "Firebase",
+            "Express.js",
+            "Framer Motion",
+            "tanstack query",
+            "MongoDB",
+            "Recharts",
+            "Stripe",
+            "TanStack Query",
+            "Node.js"
+        ],
+        "live": "https://clubnest-web.web.app",
+        "github": "https://github.com/ebrahim2355/clubnest-web",
+        "featured": true,
+        "screenshots": [
+            "https://i.ibb.co.com/p6SRBfsr/Club-Nest-Homepage.png"
+        ]
+    },
+    {
+        "id": 3,
         "title": "Cleanliness & Issue Reporting Portal",
         "description": "A web platform where users can report local issues, track complaint status, and communicate with authorities in real time. Designed to improve community cleanliness and public services.",
         "image": "https://i.ibb.co.com/Y4qqyqJP/cleanliness-and-issue-web-app-3.png",
@@ -46,7 +72,7 @@
         ]
     },
     {
-        "id": 3,
+        "id": 4,
         "title": "Local Food Lovers Network",
         "description": "A community-driven platform where users explore local food spots, share reviews, and connect with nearby food lovers.",
         "image": "https://i.ibb.co.com/nsS3Gxcq/local-food-lovers-networ-7125e-web-app.png",
