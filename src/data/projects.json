@@ -17,7 +17,7 @@
             "TanStack Query",
             "Node.js"
         ],
-        "live": "https://assetverse.netlify.app",
+        "live": "https://eb-assetverse.vercel.app",
         "github": "https://github.com/ebrahim2355/assetverse-client",
         "featured": true,
         "screenshots": [
