@@ -26,16 +26,16 @@ export default function AboutIntro() {
                 <h2 className="text-3xl font-bold text-primary glow">Hi, I’m Ebrahim 👋</h2>
 
                 <p className="mt-4 text-base md:text-lg leading-relaxed text-base-content/80 max-w-6xl">
-                    I build modern, responsive, and visually rich web applications using React, Tailwind,
-                    Node.js, Express, and MongoDB. I love creating futuristic neon UIs, smooth animations,
+                    I build modern, responsive, and visually rich web applications using React, Next.js, Tailwind,
+                    Node.js, Express, and MongoDB. I love creating futuristic UIs, smooth animations,
                     and clean reusable component architecture.
                 </p>
 
                 <div className="mt-6 flex gap-4 flex-wrap">
                     <a href="/resume.pdf" download="Ebrahim-Ali-resume.pdf" className="btn btn-primary btn-neon px-6">
                         <FaDownload />
-                        Download CV</a>
-                    <a href="/contact" className="btn btn-secondary btn-neon px-6">Contact Me</a>
+                        Download Resume</a>
+                    <a href="/contact" className="btn btn-secondary btn-neon-secondary px-6">Contact Me</a>
                 </div>
             </motion.div>
         </section>

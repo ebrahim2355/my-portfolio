@@ -53,7 +53,7 @@ export default function ErrorPage() {
                         Go Home
                     </Link>
 
-                    <Link to="/projects" className="btn btn-secondary btn-neon px-8 py-3">
+                    <Link to="/projects" className="btn btn-secondary btn-neon-secondary px-8 py-3">
                         View Projects
                     </Link>
                 </motion.div>

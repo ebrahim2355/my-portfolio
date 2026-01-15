@@ -103,7 +103,7 @@ export default function ProjectDetails() {
                     <a
                         href={project.github}
                         target="_blank"
-                        className="btn btn-secondary btn-neon px-6"
+                        className="btn btn-secondary btn-neon-secondary px-6"
                     >
                         Source Code
                     </a>

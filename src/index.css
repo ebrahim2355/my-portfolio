@@ -249,6 +249,57 @@ body {
   opacity: 0.4;
 }
 
+.btn-neon-secondary {
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px var(--color-secondary);
+}
+
+.btn-neon-secondary:hover {
+  box-shadow: 0 0 22px var(--color-secondary);
+  transform: translateY(-3px);
+}
+
+.btn-neon-secondary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, var(--color-secondary), transparent 70%);
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.btn-neon-secondary:hover::after {
+  opacity: 0.4;
+}
+
+.btn-neon-accent {
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px var(--color-accent);
+}
+
+.btn-neon-accent:hover {
+  box-shadow: 0 0 22px var(--color-accent);
+  transform: translateY(-3px);
+}
+
+.btn-neon-accent::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, var(--color-accent), transparent 70%);
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.btn-neon-accent:hover::after {
+  opacity: 0.4;
+}
+
+
 @keyframes footerFloat {
   0% {
     transform: translateY(0);

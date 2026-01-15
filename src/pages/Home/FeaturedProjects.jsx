@@ -36,42 +36,46 @@ export default function FeaturedProjects() {
                         viewport={{ once: true }}
                         className="rounded-xl bg-base-200 glow border border-primary/30 overflow-hidden shadow-xl hover:shadow-primary/40 transition-all"
                     >
-                        {/* IMAGE */}
-                        <div className="h-52 w-full overflow-hidden">
+                        {/* Image */}
+                        <div className="h-48 w-full overflow-hidden">
                             <img
                                 src={p.image}
-                                className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-500"
                                 alt={p.title}
+                                className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-500"
                             />
                         </div>
 
-                        {/* CONTENT */}
-                        <div className="p-6">
-                            <h3 className="text-2xl font-bold text-primary">{p.title}</h3>
-                            <p className="mt-2 text-base-content/70">{p.description}</p>
+                        {/* Content */}
+                        <div className="p-6 flex flex-col h-full">
+                            <h3 className="text-2xl font-bold text-primary line-clamp-2">
+                                {p.title}
+                            </h3>
 
-                            {/* TAGS */}
-                            <div className="mt-4 flex gap-2 flex-wrap">
-                                {p.tech.map((t) => (
-                                    <span key={t} className="badge badge-outline text-primary border-primary/40 px-3 py-1">
+                            <p className="mt-2 text-base-content/70 line-clamp-4">
+                                {p.description}
+                            </p>
+
+                            <div className="mt-4 flex flex-wrap gap-2">
+                                {p.tech?.map((t, idx) => (
+                                    <span key={idx} className="badge badge-outline text-primary border-primary/40">
                                         {t}
                                     </span>
                                 ))}
                             </div>
 
-                            {/* BUTTONS */}
+                            {/* Buttons */}
                             <div className="mt-6 flex gap-3">
                                 <a
                                     href={p.live}
                                     target="_blank"
-                                    className="btn btn-primary btn-neon btn-sm px-4"
+                                    className="btn btn-primary btn-neon btn-sm px-4 w-full flex-1"
                                 >
                                     Live
                                 </a>
                                 <a
                                     href={p.github}
                                     target="_blank"
-                                    className="btn btn-secondary btn-neon btn-sm px-4"
+                                    className="btn btn-secondary btn-neon-secondary btn-sm px-4 w-full flex-1"
                                 >
                                     Code
                                 </a>

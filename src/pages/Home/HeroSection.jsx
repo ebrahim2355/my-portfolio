@@ -4,6 +4,7 @@ import myPhoto from "../../assets/my-photo.jpg";
 import projects from "../../data/projects.json";
 import skills from "../../data/skills.json";
 import experience from "../../data/experience.json";
+import { FaDownload } from "react-icons/fa6";
 
 const container = {
     hidden: { opacity: 0, y: 20 },
@@ -65,17 +66,19 @@ export default function HeroSection({ particles, mousePos }) {
 
             {/* LEFT CONTENT */}
             <motion.div className="max-w-xl text-center md:text-left flex flex-col" variants={container} initial="hidden" animate="show">
-                <motion.h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-primary glow" variants={item}>
+                <motion.h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary glow" variants={item}>
                     <Split text={"Hi, I'm Ebrahim"} />
                 </motion.h1>
 
-                <motion.p className="mt-4 text-base sm:text-lg md:text-xl text-base-content/80 max-w-lg" variants={item}>
+                <motion.p className="mt-4 text-base sm:text-lg lg:text-xl text-base-content/80 max-w-lg" variants={item}>
                     <Split text={"I design and build futuristic, animated web experiences."} />
                 </motion.p>
 
                 <motion.div className="mt-8 flex justify-center md:justify-start gap-4 flex-wrap" variants={item}>
-                    <a href="#projects" className="btn btn-primary btn-neon px-6 py-3 text-sm sm:text-base">View Projects</a>
-                    <a href="/contact" className="btn btn-secondary btn-neon px-6 py-3 text-sm sm:text-base">Contact Me</a>
+                    <a href="/resume.pdf" download="Ebrahim-Ali-resume.pdf" className="btn btn-primary btn-neon px-6">
+                        <FaDownload />
+                        Download Resume</a>
+                    <a href="/contact" className="btn btn-secondary btn-neon-secondary px-6 py-3 text-sm sm:text-base">Contact Me</a>
                 </motion.div>
 
                 {/* quick stats */}

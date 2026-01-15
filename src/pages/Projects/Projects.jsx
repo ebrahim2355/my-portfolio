@@ -75,9 +75,9 @@ export default function Projects() {
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
                             whileHover={{ scale: 1.03 }}
-                            className="rounded-xl bg-base-200 glow border border-primary/30 overflow-hidden shadow-xl"
+                            className="rounded-xl bg-base-200 glow border border-primary/30 overflow-hidden shadow-xl flex flex-col h-full"
                         >
-                            {/* Project Image */}
+                            {/* Image */}
                             <div className="h-48 w-full overflow-hidden">
                                 <img
                                     src={p.image}
@@ -87,9 +87,14 @@ export default function Projects() {
                             </div>
 
                             {/* Content */}
-                            <div className="p-6">
-                                <h3 className="text-2xl font-bold text-primary">{p.title}</h3>
-                                <p className="mt-2 text-base-content/70">{p.description}</p>
+                            <div className="p-6 flex flex-col h-full">
+                                <h3 className="text-2xl font-bold text-primary line-clamp-2">
+                                    {p.title}
+                                </h3>
+
+                                <p className="mt-2 text-base-content/70 line-clamp-4">
+                                    {p.description}
+                                </p>
 
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     {p.tech?.map((t, idx) => (
@@ -99,11 +104,11 @@ export default function Projects() {
                                     ))}
                                 </div>
 
-                                <div className="mt-6 flex gap-3">
-
+                                {/* Buttons */}
+                                <div className="mt-auto flex gap-3 flex-wrap">
                                     <Link
                                         to={`/projects/${p.id}`}
-                                        className="btn btn-sm btn-accent btn-neon px-4"
+                                        className="btn btn-sm btn-accent btn-neon-accent px-4 flex-1 w-full whitespace-nowrap"
                                     >
                                         View Details
                                     </Link>
@@ -111,8 +116,7 @@ export default function Projects() {
                                     <a
                                         href={p.live}
                                         target="_blank"
-                                        rel="noreferrer"
-                                        className="btn btn-sm btn-primary btn-neon px-4"
+                                        className="btn btn-sm btn-primary btn-neon px-4 flex-1 w-full"
                                     >
                                         Live
                                     </a>
@@ -120,13 +124,11 @@ export default function Projects() {
                                     <a
                                         href={p.github}
                                         target="_blank"
-                                        rel="noreferrer"
-                                        className="btn btn-sm btn-secondary btn-neon px-4"
+                                        className="btn btn-sm btn-secondary btn-neon-secondary px-4"
                                     >
                                         Code
                                     </a>
                                 </div>
-
                             </div>
                         </motion.div>
                     ))}
