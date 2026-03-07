@@ -50,7 +50,7 @@ The codebase is structured for maintainability with reusable components, page-le
 
 ## 2. Live Demo
 
-- Production URL: `https://web-ebrahim-portfolio.vercel.app/`
+- Production URL: https://web-ebrahim-portfolio.vercel.app/
 
 ---
 
@@ -408,7 +408,3 @@ Potential next upgrades:
 - LinkedIn: `https://linkedin.com/in/ebrahim235`
 - GitHub: `https://github.com/ebrahim2355`
 - Email: `web.ebrahimali@gmail.com`
-
----
-
-If you use this project as a starter template, keep the case-study style for projects. It is one of the highest-impact sections for technical hiring.
