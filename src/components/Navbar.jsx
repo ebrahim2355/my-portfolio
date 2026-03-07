@@ -1,33 +1,50 @@
-import { useState, useEffect } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { motion } from "framer-motion";
 
+const links = [
+    { name: "Home", to: "/" },
+    { name: "About", to: "/about" },
+    { name: "Projects", to: "/projects" },
+    { name: "Contact", to: "/contact" },
+];
+
 const Navbar = () => {
     const [open, setOpen] = useState(false);
-    const [particles, setParticles] = useState([]);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const rafRef = useRef(0);
 
-    /** Generate particle positions AFTER mount (React 19 safe) */
-    useEffect(() => {
-        const generated = [...Array(25)].map(() => ({
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-        }));
-        setParticles(generated);
-    }, []);
+    const particles = useMemo(
+        () =>
+            [...Array(25)].map(() => ({
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+            })),
+        []
+    );
 
-    /** Mouse movement → parallax motion */
     useEffect(() => {
         const handleMove = (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 10; // small tilt left/right
-            const y = (e.clientY / window.innerHeight - 0.5) * 10; // small tilt up/down
-            setMousePos({ x, y });
+            if (rafRef.current) {
+                return;
+            }
+
+            rafRef.current = window.requestAnimationFrame(() => {
+                const x = (e.clientX / window.innerWidth - 0.5) * 10;
+                const y = (e.clientY / window.innerHeight - 0.5) * 10;
+                setMousePos({ x, y });
+                rafRef.current = 0;
+            });
         };
 
-        window.addEventListener("mousemove", handleMove);
-        return () => window.removeEventListener("mousemove", handleMove);
+        window.addEventListener("mousemove", handleMove, { passive: true });
+        return () => {
+            window.removeEventListener("mousemove", handleMove);
+            if (rafRef.current) {
+                window.cancelAnimationFrame(rafRef.current);
+            }
+        };
     }, []);
-
 
     const magneticHover = (e) => {
         const { offsetX, target } = e.nativeEvent;
@@ -40,17 +57,8 @@ const Navbar = () => {
         e.target.style.transform = "translateX(0px)";
     };
 
-    const links = [
-        { name: "Home", to: "/" },
-        { name: "About", to: "/about" },
-        { name: "Projects", to: "/projects" },
-        { name: "Contact", to: "/contact" },
-    ];
-
     return (
         <div className="fixed top-0 left-0 w-full z-50 neon-edge bg-base-300/30 backdrop-blur-2xl border-b border-primary/40">
-
-            {/* PARTICLE LAYER */}
             <div
                 className="nav-particles"
                 style={{
@@ -62,13 +70,7 @@ const Navbar = () => {
                 ))}
             </div>
 
-
-            {/* REST OF NAVBAR BELOW… */}
-
-
             <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-
-                {/* Logo with Flicker */}
                 <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -77,11 +79,10 @@ const Navbar = () => {
                     <Link to="/">Ebrahim</Link>
                 </motion.div>
 
-                {/* Desktop Nav */}
                 <div className="hidden md:flex gap-8">
-                    {links.map((link, i) => (
+                    {links.map((link) => (
                         <NavLink
-                            key={i}
+                            key={link.to}
                             to={link.to}
                             onMouseMove={magneticHover}
                             onMouseLeave={magneticLeave}
@@ -97,25 +98,28 @@ const Navbar = () => {
                     ))}
                 </div>
 
-                {/* Mobile Icon */}
-                <div
+                <button
+                    type="button"
                     className="md:hidden text-primary text-3xl glow cursor-pointer"
+                    aria-label="Toggle navigation menu"
+                    aria-controls="mobile-nav"
+                    aria-expanded={open}
                     onClick={() => setOpen(!open)}
                 >
                     ☰
-                </div>
+                </button>
             </div>
 
-            {/* Mobile Menu */}
             {open && (
                 <motion.div
+                    id="mobile-nav"
                     initial={{ opacity: 0, y: -15 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="md:hidden bg-base-200/90 backdrop-blur-xl p-4 flex flex-col gap-4 shadow-[0_0_20px_var(--color-primary)] border-t border-primary/40"
                 >
-                    {links.map((link, i) => (
+                    {links.map((link) => (
                         <NavLink
-                            key={i}
+                            key={link.to}
                             to={link.to}
                             onClick={() => setOpen(false)}
                             className="text-base-content hover:text-primary hover:glow transition-all"

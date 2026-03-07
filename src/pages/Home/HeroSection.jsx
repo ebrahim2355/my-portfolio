@@ -1,5 +1,6 @@
 // src/pages/Home/HeroSection.jsx
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 import myPhoto from "../../assets/my-photo.jpg";
 import projects from "../../data/projects.json";
 import skills from "../../data/skills.json";
@@ -20,18 +21,28 @@ const item = {
 };
 
 // Split text helper
-const Split = ({ text }) =>
-    text.split("").map((ch, i) => (
-        <motion.span
-            key={i}
-            className="inline-block"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.03 }}
-        >
-            {ch}
-        </motion.span>
-    ));
+const Split = ({ text }) => (
+    <span aria-label={text}>
+        {text.split(" ").map((word, wordIndex) => (
+            <span key={`${word}-${wordIndex}`} className="inline-block mr-[0.35em] last:mr-0">
+                {Array.from(word).map((ch, charIndex) => {
+                    const delay = (wordIndex * 0.2) + (charIndex * 0.03);
+                    return (
+                        <motion.span
+                            key={`${wordIndex}-${charIndex}`}
+                            className="inline-block"
+                            initial={{ opacity: 0, y: 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay }}
+                        >
+                            {ch}
+                        </motion.span>
+                    );
+                })}
+            </span>
+        ))}
+    </span>
+);
 
 export default function HeroSection({ particles, mousePos }) {
     const projectsCount = projects.length; const skillsCount = skills.length; const experienceCount = experience.length;
@@ -71,14 +82,29 @@ export default function HeroSection({ particles, mousePos }) {
                 </motion.h1>
 
                 <motion.p className="mt-4 text-base sm:text-lg lg:text-xl text-base-content/80 max-w-lg" variants={item}>
-                    <Split text={"I design and build futuristic, animated web experiences."} />
+                    <Split text={"I build production-ready MERN applications with clean architecture and high-quality UI."} />
                 </motion.p>
+
+                {/* Mobile photo placement: between intro text and action buttons */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.9 }}
+                    className="mt-8 flex justify-center md:hidden"
+                >
+                    <div className="w-[260px] h-[260px] rounded-full border-4 border-primary glow overflow-hidden shadow-xl">
+                        <img src={myPhoto} alt="Ebrahim" className="w-full h-full object-cover" />
+                    </div>
+                </motion.div>
 
                 <motion.div className="mt-8 flex justify-center md:justify-start gap-4 flex-wrap" variants={item}>
                     <a href="/resume.pdf" download="Ebrahim-Ali-resume.pdf" className="btn btn-primary btn-neon px-6">
                         <FaDownload />
-                        Download Resume</a>
-                    <a href="/contact" className="btn btn-secondary btn-neon-secondary px-6 py-3 text-sm sm:text-base">Contact Me</a>
+                        Download Resume
+                    </a>
+                    <Link to="/contact" className="btn btn-secondary btn-neon-secondary px-6 py-3 text-sm sm:text-base">
+                        Contact Me
+                    </Link>
                 </motion.div>
 
                 {/* quick stats */}
@@ -87,7 +113,12 @@ export default function HeroSection({ particles, mousePos }) {
 
 
             {/* RIGHT PHOTO */}
-            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9 }}>
+            <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.9 }}
+                className="hidden md:block"
+            >
                 <div className="w-[260px] h-[260px] md:w-[320px] md:h-80 rounded-full border-4 border-primary glow overflow-hidden shadow-xl">
                     <img src={myPhoto} alt="Ebrahim" className="w-full h-full object-cover" />
                 </div>

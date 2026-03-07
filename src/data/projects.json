@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "title": "AssetVerse — HR & Asset Management Platform",
-        "description": "A full-stack HR & asset management system designed for companies to manage employees, assets, requests, affiliations, analytics dashboards, and subscription packages. Built with secure authentication, real-time route protection, and a fully responsive modern UI.",
+        "title": "AssetVerse - HR and Asset Management Platform",
+        "description": "A full-stack platform for companies to manage employees, assets, requests, role-based access, analytics dashboards, and subscription packages.",
         "image": "https://i.ibb.co.com/S4mMfZTM/assetverse-netlify-app-1.png",
         "tech": [
             "React",
@@ -20,6 +20,24 @@
         "live": "https://eb-assetverse.vercel.app",
         "github": "https://github.com/ebrahim2355/assetverse-client",
         "featured": true,
+        "role": "Full-Stack Developer",
+        "duration": "Academic + personal production-style build",
+        "problem": "Small companies often track assets and HR requests with spreadsheets and disconnected tools, causing slow approvals and weak visibility.",
+        "decisions": [
+            "Implemented role-based route protection and JWT-backed APIs for secure access by user type.",
+            "Used TanStack Query for server-state management and responsive data refresh.",
+            "Integrated Stripe for package-based subscription flows."
+        ],
+        "highlights": [
+            "Built employee and asset lifecycle modules with request and approval flows.",
+            "Added dashboard analytics and status tracking for faster decision making.",
+            "Designed a responsive UI to support desktop and mobile workflows."
+        ],
+        "outcomes": [
+            "Reduced friction in request handling by centralizing key operations in one platform.",
+            "Improved visibility with real-time status views and dashboard metrics.",
+            "Shipped a scalable foundation ready for additional business modules."
+        ],
         "screenshots": [
             "https://i.ibb.co.com/S4mMfZTM/assetverse-netlify-app-1.png",
             "https://i.ibb.co.com/KpwwsBbf/assetverse-netlify-app-2.png"
@@ -27,8 +45,8 @@
     },
     {
         "id": 2,
-        "title": "ClubNest: Community Club and Event Management Platform",
-        "description": "ClubNest is a vibrant community platform that enables users to discover, join, create, and manage local clubs and events. It connects people with shared passions, allowing them to organize meetups, workshops, and social gatherings while fostering real-world connections.",
+        "title": "ClubNest - Community Club and Event Platform",
+        "description": "A community web app where users can discover, join, create, and manage clubs and local events.",
         "image": "https://i.ibb.co.com/p6SRBfsr/Club-Nest-Homepage.png",
         "tech": [
             "React",
@@ -45,14 +63,32 @@
         "live": "https://clubnest-web.web.app",
         "github": "https://github.com/ebrahim2355/clubnest-web",
         "featured": true,
+        "role": "Frontend-focused Full-Stack Developer",
+        "duration": "End-to-end solo implementation",
+        "problem": "Communities need a single platform to organize events, manage memberships, and improve participation.",
+        "decisions": [
+            "Designed modular event and club workflows to keep user actions simple.",
+            "Used Firebase auth for secure user onboarding and role-aware features.",
+            "Applied motion and visual hierarchy to improve discoverability and engagement."
+        ],
+        "highlights": [
+            "Implemented event creation, joining, and management experiences.",
+            "Built searchable and browsable club/event listings.",
+            "Added responsive interactions to keep the platform usable across devices."
+        ],
+        "outcomes": [
+            "Created a practical community workflow from discovery to participation.",
+            "Improved clarity of event ownership and membership actions.",
+            "Delivered a polished, production-style UX with strong frontend execution."
+        ],
         "screenshots": [
             "https://i.ibb.co.com/p6SRBfsr/Club-Nest-Homepage.png"
         ]
     },
     {
         "id": 3,
-        "title": "Cleanliness & Issue Reporting Portal",
-        "description": "A web platform where users can report local issues, track complaint status, and communicate with authorities in real time. Designed to improve community cleanliness and public services.",
+        "title": "Cleanliness and Issue Reporting Portal",
+        "description": "A civic reporting system where users submit local issues, track complaint status, and communicate with authorities.",
         "image": "https://i.ibb.co.com/Y4qqyqJP/cleanliness-and-issue-web-app-3.png",
         "tech": [
             "React",
@@ -65,6 +101,24 @@
         "live": "https://cleanliness-and-issue.web.app",
         "github": "https://github.com/ebrahim2355/cleanliness-and-issue-reporting-client-portal",
         "featured": true,
+        "role": "MERN Developer",
+        "duration": "Problem-focused public service project",
+        "problem": "Citizens often cannot report and track local service issues in a transparent way.",
+        "decisions": [
+            "Structured complaint lifecycle states to make progress visible to users.",
+            "Prioritized simple reporting forms to increase successful submissions.",
+            "Created status-oriented UI to reduce uncertainty after reporting."
+        ],
+        "highlights": [
+            "Built complaint submission, updates, and tracking flows.",
+            "Enabled authority communication context through structured issue data.",
+            "Focused on responsive and accessible reporting screens."
+        ],
+        "outcomes": [
+            "Made issue reporting easier and more transparent.",
+            "Improved trust by exposing clear complaint progress states.",
+            "Delivered a reusable civic-reporting architecture."
+        ],
         "screenshots": [
             "https://i.ibb.co.com/Y4qqyqJP/cleanliness-and-issue-web-app-3.png",
             "https://i.ibb.co.com/1fFMsB7N/cleanliness-and-issue-web-app-4.png"
@@ -73,7 +127,7 @@
     {
         "id": 4,
         "title": "Local Food Lovers Network",
-        "description": "A community-driven platform where users explore local food spots, share reviews, and connect with nearby food lovers.",
+        "description": "A community-driven platform where users discover local food spots, write reviews, and connect with nearby food enthusiasts.",
         "image": "https://i.ibb.co.com/nsS3Gxcq/local-food-lovers-networ-7125e-web-app.png",
         "tech": [
             "React",
@@ -86,6 +140,24 @@
         "live": "https://local-food-lovers-networ-7125e.web.app",
         "github": "https://github.com/ebrahim2355/local-food-lovers-network-client",
         "featured": true,
+        "role": "Frontend + API Integration Developer",
+        "duration": "Community product concept build",
+        "problem": "Food discovery is fragmented, and local recommendations are hard to trust or search effectively.",
+        "decisions": [
+            "Designed list-and-review flows for quick discovery and contribution.",
+            "Used structured category and location metadata to improve browsing.",
+            "Kept interface lightweight and mobile-friendly for daily use."
+        ],
+        "highlights": [
+            "Implemented food spot exploration and user review experiences.",
+            "Added social-style interaction patterns for community engagement.",
+            "Built clean UI components for scalable feature additions."
+        ],
+        "outcomes": [
+            "Improved discoverability of local food options through shared reviews.",
+            "Enabled repeat engagement with a community-centered flow.",
+            "Delivered a reusable social discovery foundation."
+        ],
         "screenshots": [
             "https://i.ibb.co.com/nsS3Gxcq/local-food-lovers-networ-7125e-web-app.png"
         ]

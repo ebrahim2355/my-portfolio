@@ -1,17 +1,16 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 export default function NeonParticles({ count = 20 }) {
-    const [particles, setParticles] = useState([]);
-
-    useEffect(() => {
-        const gen = [...Array(count)].map(() => ({
+    const particles = useMemo(
+        () =>
+            [...Array(count)].map(() => ({
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
             size: Math.random() * 3 + 2,
             delay: Math.random() * 5,
-        }));
-        setParticles(gen);
-    }, [count]);
+            })),
+        [count]
+    );
 
     return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden">

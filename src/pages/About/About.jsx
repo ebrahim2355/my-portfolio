@@ -2,6 +2,7 @@ import NeonParticles from "../../components/NeonParticles";
 import AboutHeader from "./AboutHeader";
 import AboutIntro from "./AboutIntro";
 import CTASection from "./CTASection";
+import EducationSection from "./EducationSection";
 import ExperienceTimeline from "./ExperienceTimeline";
 import SkillsGrid from "./SkillsGrid";
 import WhatIDo from "./WhatIDo";
@@ -17,6 +18,7 @@ export default function About() {
                 <AboutHeader />
                 <AboutIntro />
                 <WhatIDo />
+                <EducationSection />
                 <ExperienceTimeline />
                 <SkillsGrid />
                 <CTASection />

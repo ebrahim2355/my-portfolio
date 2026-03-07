@@ -3,16 +3,16 @@ import { motion } from "framer-motion";
 export default function WhatIDo() {
     const items = [
         {
-            title: "Frontend Development",
-            text: "React, Tailwind, DaisyUI, animations, accessibility, UI engineering."
+            title: "Product-Focused Frontend",
+            text: "React interfaces with reusable components, accessibility, and performance-focused UX."
         },
         {
-            title: "Backend Development",
-            text: "Node.js, Express, JWT auth, REST APIs, database design."
+            title: "Backend and API Engineering",
+            text: "Node.js and Express services with authentication, REST APIs, and production-ready data models."
         },
         {
-            title: "Design & UX",
-            text: "Component systems, neon UI design, motion design, user experience."
+            title: "Delivery and Quality",
+            text: "Clear architecture decisions, maintainable code, and iterative shipping based on real user needs."
         }
     ];
 

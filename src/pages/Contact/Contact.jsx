@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import NeonParticles from "../../components/NeonParticles";
 import { useForm } from "react-hook-form";
 import emailjs from "emailjs-com";
 import toast from "react-hot-toast";
-import { FaEnvelope, FaPhone, FaLocationDot } from "react-icons/fa6";
+import { FaEnvelope, FaLocationDot, FaPhone } from "react-icons/fa6";
+import NeonParticles from "../../components/NeonParticles";
 
 export default function Contact() {
     const {
@@ -13,7 +13,7 @@ export default function Contact() {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = async (data) => {
+    const onSubmit = (data) => {
         toast.loading("Sending...", { id: "send" });
 
         emailjs
@@ -37,8 +37,6 @@ export default function Contact() {
             <NeonParticles count={30} />
 
             <div className="relative z-10 max-w-5xl mx-auto">
-
-                {/* Page Title */}
                 <motion.h1
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -52,20 +50,17 @@ export default function Contact() {
                     whileInView={{ opacity: 1 }}
                     className="text-center text-base md:text-lg text-base-content/70 mt-4 max-w-2xl mx-auto"
                 >
-                    Want to reach me directly? Send me a message 👇
+                    Want to reach me directly? Send me a message.
                 </motion.p>
 
-                {/* Main Grid */}
                 <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
-
-                    {/* Contact Info */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
                         className="space-y-6"
                     >
-                        <h2 className="text-2xl font-bold text-primary glow">Let's Connect</h2>
+                        <h2 className="text-2xl font-bold text-primary glow">Let&apos;s Connect</h2>
 
                         <div className="flex items-center gap-4">
                             <FaEnvelope className="text-primary text-3xl glow" />
@@ -83,7 +78,6 @@ export default function Contact() {
                         </div>
                     </motion.div>
 
-                    {/* Contact Form */}
                     <motion.form
                         onSubmit={handleSubmit(onSubmit)}
                         initial={{ opacity: 0, x: 20 }}
@@ -91,38 +85,40 @@ export default function Contact() {
                         transition={{ duration: 0.5 }}
                         className="space-y-5 bg-base-200/40 p-8 rounded-xl border glow border-primary/30"
                     >
-                        {/* Name */}
                         <div>
-                            <label className="text-primary font-semibold">Name</label>
+                            <label htmlFor="contact-name" className="text-primary font-semibold">
+                                Name
+                            </label>
                             <input
+                                id="contact-name"
                                 type="text"
                                 {...register("name", { required: true })}
                                 placeholder="Your Name"
                                 className="input input-bordered w-full bg-base-100"
                             />
-                            {errors.name && (
-                                <p className="text-error text-sm mt-1">Name is required</p>
-                            )}
+                            {errors.name && <p className="text-error text-sm mt-1">Name is required</p>}
                         </div>
 
-                        {/* Email */}
                         <div>
-                            <label className="text-primary font-semibold">Email</label>
+                            <label htmlFor="contact-email" className="text-primary font-semibold">
+                                Email
+                            </label>
                             <input
+                                id="contact-email"
                                 type="email"
                                 {...register("email", { required: true })}
                                 placeholder="you@example.com"
                                 className="input input-bordered w-full bg-base-100"
                             />
-                            {errors.email && (
-                                <p className="text-error text-sm mt-1">Valid email required</p>
-                            )}
+                            {errors.email && <p className="text-error text-sm mt-1">Valid email required</p>}
                         </div>
 
-                        {/* Message */}
                         <div>
-                            <label className="text-primary font-semibold">Message</label>
+                            <label htmlFor="contact-message" className="text-primary font-semibold">
+                                Message
+                            </label>
                             <textarea
+                                id="contact-message"
                                 {...register("message", { required: true, minLength: 10 })}
                                 placeholder="Your message..."
                                 className="textarea textarea-bordered w-full bg-base-100 h-32"
@@ -132,7 +128,6 @@ export default function Contact() {
                             )}
                         </div>
 
-                        {/* Submit */}
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}

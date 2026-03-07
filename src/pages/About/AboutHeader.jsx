@@ -17,7 +17,7 @@ export default function AboutHeader() {
                 transition={{ delay: 0.1 }}
                 className="mt-4 text-base md:text-lg text-base-content/70 max-w-2xl mx-auto"
             >
-                A passionate MERN-stack developer crafting futuristic UI with clean code and beautiful animations.
+                MERN stack developer focused on scalable frontend systems, practical backend architecture, and measurable product impact.
             </motion.p>
         </section>
     );
