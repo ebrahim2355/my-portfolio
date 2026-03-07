@@ -2,6 +2,7 @@ import { Outlet } from "react-router";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NeonParticles from "../components/NeonParticles";
+import FireCursor from "../components/FireCursor";
 
 const Root = () => {
     return (
@@ -15,6 +16,7 @@ const Root = () => {
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>
+            <FireCursor />
         </div>
     );
 };
