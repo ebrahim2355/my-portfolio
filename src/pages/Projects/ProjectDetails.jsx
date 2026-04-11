@@ -166,14 +166,24 @@ export default function ProjectDetails() {
                         Live Demo
                     </a>
 
-                    <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-secondary btn-neon-secondary px-6"
-                    >
-                        Source Code
-                    </a>
+                    {project.github ? (
+                        <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-secondary btn-neon-secondary px-6"
+                        >
+                            Source Code
+                        </a>
+                    ) : (
+                        <span
+                            title="This repository is private"
+                            aria-label="This repository is private"
+                            className="btn btn-secondary btn-neon-secondary px-6 opacity-70 pointer-events-none cursor-not-allowed"
+                        >
+                            Private Repo
+                        </span>
+                    )}
                 </motion.div>
 
                 {project.screenshots && project.screenshots.length > 0 && (
@@ -185,9 +195,9 @@ export default function ProjectDetails() {
                     >
                         <h3 className="text-2xl font-bold text-primary">Screenshots</h3>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4 items-start">
                             {project.screenshots.map((img, i) => (
-                                <div key={i} className="overflow-hidden rounded-xl border border-primary/30 glow">
+                                <div key={i} className="self-start overflow-hidden rounded-xl border border-primary/30 glow">
                                     <img
                                         src={img}
                                         alt={`${project.title} screenshot ${i + 1}`}

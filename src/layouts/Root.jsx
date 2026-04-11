@@ -11,7 +11,10 @@ const Root = () => {
                 <NeonParticles count={45} />
             </div>
 
-            <Navbar></Navbar>
+            <header className="fixed top-0 left-0 right-0 z-100">
+                <Navbar></Navbar>
+            </header>
+
             <div className="min-h-screen relative z-10">
                 <Outlet></Outlet>
             </div>

@@ -120,14 +120,24 @@ export default function Projects() {
                                         Live
                                     </a>
 
-                                    <a
-                                        href={p.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="btn btn-sm btn-secondary btn-neon-secondary px-4"
-                                    >
-                                        Code
-                                    </a>
+                                    {p.github ? (
+                                        <a
+                                            href={p.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="btn btn-sm btn-secondary btn-neon-secondary px-4"
+                                        >
+                                            Code
+                                        </a>
+                                    ) : (
+                                        <span
+                                            title="This repository is private"
+                                            aria-label="This repository is private"
+                                            className="btn btn-sm btn-secondary btn-neon-secondary px-4 opacity-70 pointer-events-none cursor-not-allowed"
+                                        >
+                                            Private Repo
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>

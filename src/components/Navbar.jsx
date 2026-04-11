@@ -58,7 +58,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="fixed top-0 left-0 w-full z-50 neon-edge bg-base-300/30 backdrop-blur-2xl border-b border-primary/40">
+        <div className="relative w-full neon-edge bg-base-300/30 backdrop-blur-2xl border-b border-primary/40">
             <div
                 className="nav-particles"
                 style={{

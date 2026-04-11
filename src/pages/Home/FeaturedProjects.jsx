@@ -73,14 +73,24 @@ export default function FeaturedProjects() {
                                 >
                                     Live
                                 </a>
-                                <a
-                                    href={p.github}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn btn-secondary btn-neon-secondary btn-sm px-4 w-full flex-1"
-                                >
-                                    Code
-                                </a>
+                                {p.github ? (
+                                    <a
+                                        href={p.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="btn btn-secondary btn-neon-secondary btn-sm px-4 w-full flex-1"
+                                    >
+                                        Code
+                                    </a>
+                                ) : (
+                                    <span
+                                        title="This repository is private"
+                                        aria-label="This repository is private"
+                                        className="btn btn-secondary btn-neon-secondary btn-sm px-4 w-full flex-1 opacity-70 pointer-events-none cursor-not-allowed"
+                                    >
+                                        Private Repo
+                                    </span>
+                                )}
                             </div>
                         </div>
                     </motion.div>

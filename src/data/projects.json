@@ -1,6 +1,65 @@
 [
     {
         "id": 1,
+        "title": "Zyplo - Team Workspace & Resource Management Platform",
+        "description": "A collaborative workspace platform designed to help teams create and manage workspaces, organize resources, maintain structured documentation, and monitor activity through a unified dashboard. Zyplo focuses on improving team collaboration by centralizing workflows, resources, and communication in one platform.",
+        "image": "https://i.ibb.co.com/Xf79qftY/Screenshot-2026-03-28-234510.png",
+        "tech": [
+            "React",
+            "Next.js",
+            "TailwindCSS",
+            "Express.js",
+            "MongoDB",
+            "Node.js",
+            "JWT",
+            "Framer Motion",
+            "Recharts",
+            "React Hook Form",
+            "Axios"
+        ],
+        "live": "https://zyplo-six.vercel.app",
+        "github": "",
+        "featured": true,
+        "role": "Frontend / Full-Stack Developer",
+        "duration": "Team Project (Production-Style Build)",
+        "problem": "Teams often rely on scattered tools for communication, documentation, and resource management, resulting in poor organization, lack of visibility, and slow decision-making. Zyplo addresses this by centralizing workspace activities, structured resources, and team insights.",
+        "decisions": [
+            "Designed a workspace-based architecture allowing users to create, manage, and delete multiple workspaces with role-based access control.",
+            "Implemented JWT-based authentication to secure APIs and manage user sessions.",
+            "Used dynamic routing to manage workspace pages, resource details, and member access.",
+            "Structured resource and documentation modules to allow categorized and scalable content management.",
+            "Built analytics dashboards using Recharts to visualize workspace activity, resource usage, and team engagement.",
+            "Adopted reusable UI components and modular architecture to ensure scalability and maintainability."
+        ],
+        "features": [
+            "Authentication system with secure login and registration.",
+            "Workspace creation, management, and deletion.",
+            "Role-based access control for members and admins.",
+            "Structured resource and documentation management.",
+            "Interactive dashboards with charts and statistics.",
+            "Profile editing and account management.",
+            "Responsive UI optimized for desktop and mobile.",
+            "Dynamic routing for workspace and resource pages."
+        ],
+        "highlights": [
+            "Developed the complete workspace management flow including creation, editing, and deletion.",
+            "Implemented a structured resource and documentation system with category-based organization.",
+            "Built an overview dashboard displaying charts, stats, and activity insights.",
+            "Created reusable components for cards, forms, tables, and dashboards.",
+            "Ensured clean UI/UX with animations and smooth navigation."
+        ],
+        "outcomes": [
+            "Improved team collaboration by centralizing workflows, resources, and insights.",
+            "Enhanced visibility into workspace activity through analytics dashboards.",
+            "Provided a scalable foundation for adding future collaboration tools and integrations."
+        ],
+        "screenshots": [
+            "https://i.ibb.co.com/Xf79qftY/Screenshot-2026-03-28-234510.png",
+            "https://i.ibb.co.com/LXL7NQW8/zyplo-six-vercel-app-dashboard-w-69a30710b2e7bc48157771f4.png"
+        ]
+    },
+    {
+        "id": 2,
         "title": "AssetVerse - HR and Asset Management Platform",
         "description": "A full-stack platform for companies to manage employees, assets, requests, role-based access, analytics dashboards, and subscription packages.",
         "image": "https://i.ibb.co.com/S4mMfZTM/assetverse-netlify-app-1.png",
@@ -44,7 +103,7 @@
         ]
     },
     {
-        "id": 2,
+        "id": 3,
         "title": "ClubNest - Community Club and Event Platform",
         "description": "A community web app where users can discover, join, create, and manage clubs and local events.",
         "image": "https://i.ibb.co.com/p6SRBfsr/Club-Nest-Homepage.png",
@@ -86,7 +145,7 @@
         ]
     },
     {
-        "id": 3,
+        "id": 4,
         "title": "Cleanliness and Issue Reporting Portal",
         "description": "A civic reporting system where users submit local issues, track complaint status, and communicate with authorities.",
         "image": "https://i.ibb.co.com/Y4qqyqJP/cleanliness-and-issue-web-app-3.png",
@@ -125,7 +184,7 @@
         ]
     },
     {
-        "id": 4,
+        "id": 5,
         "title": "Local Food Lovers Network",
         "description": "A community-driven platform where users discover local food spots, write reviews, and connect with nearby food enthusiasts.",
         "image": "https://i.ibb.co.com/nsS3Gxcq/local-food-lovers-networ-7125e-web-app.png",

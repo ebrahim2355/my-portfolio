@@ -4,15 +4,16 @@ export default function FireCursor() {
     const [enabled, setEnabled] = useState(false);
     const [visible, setVisible] = useState(false);
     const [sparks, setSparks] = useState([]);
-    const [trail, setTrail] = useState([]);
+    const [streaks, setStreaks] = useState([]);
     const cursorRef = useRef(null);
     const currentRef = useRef({ x: 0, y: 0 });
     const targetRef = useRef({ x: 0, y: 0 });
+    const previousRef = useRef(null);
     const rafRef = useRef(0);
     const sparkTimerRef = useRef(0);
-    const trailTimerRef = useRef(0);
+    const streakTimerRef = useRef(0);
     const sparkIdRef = useRef(0);
-    const trailIdRef = useRef(0);
+    const streakIdRef = useRef(0);
     const mountedRef = useRef(true);
 
     useEffect(() => {
@@ -70,27 +71,34 @@ export default function FireCursor() {
             }, spark.life);
         };
 
-        const spawnTrail = (x, y) => {
-            const id = trailIdRef.current++;
-            const node = {
+        const spawnStreak = (fromX, fromY, toX, toY) => {
+            const dx = toX - fromX;
+            const dy = toY - fromY;
+            const length = Math.hypot(dx, dy);
+
+            if (length < 6) {
+                return;
+            }
+
+            const id = streakIdRef.current++;
+            const streak = {
                 id,
-                x: x + (Math.random() * 8 - 4),
-                y: y + (Math.random() * 6 - 3),
-                size: Math.random() * 20 + 18,
-                life: Math.random() * 200 + 300,
-                driftX: Math.random() * 20 - 10,
-                driftY: -(Math.random() * 20 + 10),
-                rotate: Math.random() * 24 - 12,
+                x: fromX,
+                y: fromY,
+                length,
+                angle: Math.atan2(dy, dx) * (180 / Math.PI),
+                thickness: Math.random() * 3 + 4,
+                life: Math.random() * 220 + 320,
             };
 
-            setTrail((prev) => [...prev.slice(-14), node]);
+            setStreaks((prev) => [...prev.slice(-24), streak]);
 
             window.setTimeout(() => {
                 if (!mountedRef.current) {
                     return;
                 }
-                setTrail((prev) => prev.filter((item) => item.id !== id));
-            }, node.life);
+                setStreaks((prev) => prev.filter((item) => item.id !== id));
+            }, streak.life);
         };
 
         const handleMove = (e) => {
@@ -103,14 +111,30 @@ export default function FireCursor() {
                 sparkTimerRef.current = now;
                 spawnSpark(e.clientX, e.clientY);
             }
-            if (now - trailTimerRef.current > 18) {
-                trailTimerRef.current = now;
-                spawnTrail(e.clientX, e.clientY);
+
+            if (previousRef.current && now - streakTimerRef.current > 16) {
+                streakTimerRef.current = now;
+                spawnStreak(previousRef.current.x, previousRef.current.y, e.clientX, e.clientY);
             }
+
+            previousRef.current = { x: e.clientX, y: e.clientY };
         };
 
-        const handleLeave = () => setVisible(false);
-        const handleEnter = () => setVisible(true);
+        const handleLeave = () => {
+            setVisible(false);
+            previousRef.current = null;
+        };
+
+        const handleEnter = (e) => {
+            setVisible(true);
+            if (typeof e?.clientX === "number" && typeof e?.clientY === "number") {
+                targetRef.current.x = e.clientX;
+                targetRef.current.y = e.clientY;
+                currentRef.current.x = e.clientX;
+                currentRef.current.y = e.clientY;
+                previousRef.current = { x: e.clientX, y: e.clientY };
+            }
+        };
 
         const animate = () => {
             currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.24;
@@ -143,30 +167,32 @@ export default function FireCursor() {
 
     return (
         <div className="fire-cursor-layer" aria-hidden="true">
-            {trail.map((node) => (
+            {streaks.map((streak) => (
                 <span
-                    key={node.id}
-                    className="fire-trail"
+                    key={streak.id}
+                    className="fire-streak"
                     style={{
-                        left: `${node.x}px`,
-                        top: `${node.y}px`,
-                        width: `${node.size}px`,
-                        height: `${node.size * 1.3}px`,
-                        "--trail-drift-x": `${node.driftX}px`,
-                        "--trail-drift-y": `${node.driftY}px`,
-                        "--trail-rotate": `${node.rotate}deg`,
-                        animationDuration: `${node.life}ms`,
+                        left: `${streak.x}px`,
+                        top: `${streak.y}px`,
+                        width: `${streak.length}px`,
+                        height: `${streak.thickness}px`,
+                        transform: `translateY(-50%) rotate(${streak.angle}deg)`,
+                        animationDuration: `${streak.life}ms`,
                     }}
                 ></span>
             ))}
 
-            <div ref={cursorRef} className={`fire-cursor ${visible ? "is-visible" : ""}`}>
-                <span className="fire-core"></span>
-                <span className="fire-glow"></span>
-                <span className="fire-flame flame-1"></span>
-                <span className="fire-flame flame-2"></span>
-                <span className="fire-flame flame-3"></span>
-                <span className="fire-plume"></span>
+            <div ref={cursorRef} className={`fire-cursor-outline ${visible ? "is-visible" : ""}`}>
+                <svg viewBox="0 0 24 32" className="fire-cursor-outline-svg">
+                    <polygon
+                        points="3,1 21,15 13,16 16,30 10,30 8,19 3,24"
+                        className="fire-cursor-outline-glow"
+                    />
+                    <polygon
+                        points="3,1 21,15 13,16 16,30 10,30 8,19 3,24"
+                        className="fire-cursor-outline-stroke"
+                    />
+                </svg>
             </div>
 
             {sparks.map((spark) => (
