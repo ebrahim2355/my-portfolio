@@ -3,10 +3,13 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NeonParticles from "../components/NeonParticles";
 import FireCursor from "../components/FireCursor";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Root = () => {
     return (
         <div className="relative">
+            <ScrollToTop />
+
             <div className="fixed inset-0 -z-10 pointer-events-none">
                 <NeonParticles count={45} />
             </div>
