@@ -1,11 +1,107 @@
 [
     {
-        "year": "2024-Present",
-        "role": "Frontend Developer",
+        "year": "Jun 2026 - Present",
+        "role": "Full Stack Engineer",
+        "company": "RemoteIntegrity",
+        "location": "Clearwater, Florida, United States - Remote",
+        "type": "Full-time",
+        "description": "Contributing to the development of a large-scale e-commerce and CRM platform that unifies customer management, order processing, analytics, inventory tracking, affiliate management, and business operations.",
+        "highlights": [
+            "Designing and implementing scalable backend services using NestJS, TypeScript, and PostgreSQL with modular architecture and domain-driven design principles.",
+            "Building RESTful APIs for authentication, customer management, product catalogues, order workflows, payments, inventory management, analytics, and administrative operations.",
+            "Developing responsive and high-performance frontend applications using Next.js, React, and TypeScript with strong focus on user experience, maintainability, and SEO.",
+            "Working with PostgreSQL and Prisma ORM to design schemas, optimize queries, manage migrations, and maintain data integrity across complex business workflows.",
+            "Contributing to AI-powered solutions through OCR, intelligent document processing, automation workflows, and large language model integrations."
+        ],
+        "skillsUsed": [
+            "NestJS",
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Node.js",
+            "PostgreSQL",
+            "Prisma ORM",
+            "Redis",
+            "Docker",
+            "REST APIs",
+            "CI/CD",
+            "OCR",
+            "LLM"
+        ]
+    },
+    {
+        "year": "Dec 2025 - May 2026",
+        "role": "Full Stack Engineer",
+        "company": "Terabyte AI",
+        "location": "Rajshahi, Bangladesh - Hybrid",
+        "type": "Full-time",
+        "description": "Designed and developed full-stack applications across web, desktop, and mobile-oriented workflows, combining MERN development with Python, Django, AI integrations, and deployment responsibilities.",
+        "highlights": [
+            "Built full-stack web applications using MongoDB, Express.js, React, and Node.js with responsive and scalable user experiences.",
+            "Developed and maintained RESTful APIs, authentication systems, authorization flows, and optimized database operations for performance and reliability.",
+            "Worked with SQL and PostgreSQL databases, including schema design, complex queries, and improved data management workflows.",
+            "Developed backend services and web applications using Python and Django with maintainable architecture and efficient API design.",
+            "Deployed and maintained applications on VPS environments and contributed to AI-powered products involving OCR, document scanning, automation, and LLM capabilities."
+        ],
+        "skillsUsed": [
+            "React",
+            "Next.js",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "PostgreSQL",
+            "SQL",
+            "Python",
+            "Django",
+            "Docker",
+            "VPS",
+            "OCR",
+            "LLM"
+        ]
+    },
+    {
+        "year": "Feb 2025 - Dec 2025",
+        "role": "Freelance / Mini Projects",
         "company": "Freelance",
-        "location": "Remote",
+        "location": "Bangladesh - Remote",
         "type": "Freelance",
-        "description": "Building modern UI, animations, and full-stack applications for clients worldwide.",
-        "skillsUsed": ["React", "Tailwind", "Node.js"]
+        "description": "Worked on freelance and self-initiated product builds, turning ideas into polished portfolio-ready applications with strong UI execution, responsive layouts, and practical full-stack features.",
+        "highlights": [
+            "Designed and built modern landing pages, dashboards, and interactive product experiences for practice, experimentation, and client-style delivery.",
+            "Focused on frontend polish, reusable components, responsive behavior, animation, and clean developer experience.",
+            "Expanded practical full-stack skills by shipping mini products with authentication, CRUD flows, APIs, and deployment workflows."
+        ],
+        "skillsUsed": [
+            "React",
+            "Next.js",
+            "TailwindCSS",
+            "Framer Motion",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Git",
+            "GitHub"
+        ]
+    },
+    {
+        "year": "Feb 2024 - Nov 2025",
+        "role": "Frontend Developer",
+        "company": "Zyplo",
+        "location": "Bangladesh - Remote",
+        "type": "Contract",
+        "description": "Contributed to the frontend experience of a collaborative workspace and resource management platform, focusing on responsive UI, dashboard usability, and polished interaction design.",
+        "highlights": [
+            "Developed responsive dashboard interfaces to improve usability and accessibility across devices.",
+            "Implemented animated UI interactions using Framer Motion to create a smoother and more engaging product experience.",
+            "Built reusable frontend components and structured layouts to support workspace, resource, and documentation flows."
+        ],
+        "skillsUsed": [
+            "React",
+            "Next.js",
+            "TailwindCSS",
+            "Framer Motion",
+            "User Experience",
+            "UI Design"
+        ]
     }
 ]

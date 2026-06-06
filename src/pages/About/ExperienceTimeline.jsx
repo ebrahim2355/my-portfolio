@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import experience from "../../data/experience.json"
+import experience from "../../data/experience.json";
 
 export default function ExperienceTimeline() {
     return (
@@ -18,11 +18,23 @@ export default function ExperienceTimeline() {
                         <span className="absolute -left-2 top-2 w-4 h-4 rounded-full bg-primary glow"></span>
 
                         <h3 className="text-xl font-bold text-primary">{exp.role}</h3>
-                        <p className="text-sm text-base-content/60">{exp.company} • {exp.year}</p>
+                        <p className="text-sm text-base-content/70">{exp.company} - {exp.type}</p>
+                        <p className="text-sm text-base-content/60">{exp.year}</p>
+                        {exp.location && <p className="text-sm text-base-content/60">{exp.location}</p>}
 
-                        <p className="mt-2 text-base-content/70">{exp.description}</p>
+                        <p className="mt-2 text-base-content/70 leading-relaxed">{exp.description}</p>
 
-                        <div className="mt-3 flex gap-2 flex-wrap">
+                        {exp.highlights?.length > 0 && (
+                            <ul className="mt-3 space-y-2 text-base-content/75">
+                                {exp.highlights.map((item, idx) => (
+                                    <li key={idx} className="leading-relaxed">
+                                        - {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+
+                        <div className="mt-4 flex gap-2 flex-wrap">
                             {exp.skillsUsed?.map((s, idx) => (
                                 <span key={idx} className="badge badge-primary">{s}</span>
                             ))}
