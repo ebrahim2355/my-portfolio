@@ -60,6 +60,55 @@
     },
     {
         "id": 2,
+        "title": "VELANO Fashion - Premium Fashion Ecommerce Platform",
+        "description": "A full-stack fashion ecommerce platform for a Bangladesh-based premium clothing brand, combining a polished storefront, integrated admin operations, localized checkout, and membership-driven customer retention flows.",
+        "image": "https://i.ibb.co.com/wFVtPCDB/www-velanobd-com.png",
+        "tech": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "TailwindCSS",
+            "Express.js",
+            "MongoDB",
+            "Node.js",
+            "JWT",
+            "Zustand",
+            "Cloudinary",
+            "Google OAuth"
+        ],
+        "live": "https://velanobd.com",
+        "github": "",
+        "featured": true,
+        "role": "Full-Stack Developer",
+        "duration": "Production-style ecommerce brand build",
+        "problem": "Fashion brands need more than a basic storefront. They need a branded buying experience, flexible catalog management, localized payment and shipping support, and systems that encourage repeat purchases.",
+        "decisions": [
+            "Structured the project as separate Next.js frontend and Express TypeScript backend applications to keep storefront and API responsibilities clear.",
+            "Implemented JWT-based authentication with profile management, Google sign-in, and role-based admin access.",
+            "Built a rich product model supporting sizes, colors, media galleries, reviews, and related products for better merchandising.",
+            "Added localized checkout support for Bangladesh with bKash, Nagad, and cash-on-delivery payment flows.",
+            "Introduced a membership and rewards system with spend-based qualification logic to improve retention.",
+            "Used an asynchronous email notification pipeline so customer and admin order events remain reliable and recoverable."
+        ],
+        "highlights": [
+            "Developed both the customer storefront and integrated admin dashboard in a single product ecosystem.",
+            "Built guest and authenticated checkout flows with order tracking, payment verification, and profile-based order history.",
+            "Implemented wishlist, review, and membership experiences to support repeat customer engagement.",
+            "Created admin workflows for managing products, users, orders, and commerce-related operations.",
+            "Added SEO metadata, structured site architecture, and branded UI patterns for a premium ecommerce feel."
+        ],
+        "outcomes": [
+            "Delivered a stronger direct-to-customer commerce foundation than a standard template storefront.",
+            "Improved operational visibility through admin tools, order management, and notification workflows.",
+            "Created a scalable brand platform ready for future growth in catalog, loyalty, and marketing features."
+        ],
+        "screenshots": [
+            "https://i.ibb.co.com/wFVtPCDB/www-velanobd-com.png",
+            "https://i.ibb.co.com/Kjr0s22f/www-velanobd-com-2.png"
+        ]
+    },
+    {
+        "id": 3,
         "title": "AssetVerse - HR and Asset Management Platform",
         "description": "A full-stack platform for companies to manage employees, assets, requests, role-based access, analytics dashboards, and subscription packages.",
         "image": "https://i.ibb.co.com/S4mMfZTM/assetverse-netlify-app-1.png",
@@ -103,7 +152,7 @@
         ]
     },
     {
-        "id": 3,
+        "id": 4,
         "title": "ClubNest - Community Club and Event Platform",
         "description": "A community web app where users can discover, join, create, and manage clubs and local events.",
         "image": "https://i.ibb.co.com/p6SRBfsr/Club-Nest-Homepage.png",
@@ -145,7 +194,7 @@
         ]
     },
     {
-        "id": 4,
+        "id": 5,
         "title": "Cleanliness and Issue Reporting Portal",
         "description": "A civic reporting system where users submit local issues, track complaint status, and communicate with authorities.",
         "image": "https://i.ibb.co.com/Y4qqyqJP/cleanliness-and-issue-web-app-3.png",
@@ -184,7 +233,7 @@
         ]
     },
     {
-        "id": 5,
+        "id": 6,
         "title": "Local Food Lovers Network",
         "description": "A community-driven platform where users discover local food spots, write reviews, and connect with nearby food enthusiasts.",
         "image": "https://i.ibb.co.com/nsS3Gxcq/local-food-lovers-networ-7125e-web-app.png",
@@ -219,6 +268,96 @@
         ],
         "screenshots": [
             "https://i.ibb.co.com/nsS3Gxcq/local-food-lovers-networ-7125e-web-app.png"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Ember & Oak - Premium Restaurant Demo Website",
+        "description": "A high-conversion restaurant web experience designed for a premium fine-dining brand, with cinematic motion, rich storytelling, menu exploration, reservation flows, and hospitality-focused conversion paths.",
+        "image": "https://i.ibb.co.com/r2LKpfL1/restaurant-eb-vercel-app.png",
+        "tech": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "TailwindCSS",
+            "Framer Motion",
+            "Lucide React",
+            "next/image"
+        ],
+        "live": "https://restaurant-eb.vercel.app",
+        "github": "https://github.com/ebrahim2355/restaurant-web",
+        "featured": true,
+        "role": "Frontend Developer",
+        "duration": "Premium UI/UX concept build",
+        "problem": "High-end hospitality brands need more than a simple landing page. They need a design-forward digital experience that builds trust, showcases atmosphere, and drives reservation intent.",
+        "decisions": [
+            "Used the Next.js App Router with modular route-level pages to structure the restaurant journey from discovery to reservation.",
+            "Built reusable UI sections and layout components to keep the experience scalable across menu, gift card, private dining, and press pages.",
+            "Applied motion deliberately with cinematic transitions, progressive reveals, and layered overlays to reinforce a luxury brand feel.",
+            "Focused on mobile and desktop conversion by adding persistent reservation affordances and sticky booking UI patterns.",
+            "Used typed mock data and component composition to keep content-driven sections maintainable and easy to extend."
+        ],
+        "highlights": [
+            "Designed a complete restaurant funnel including menu browsing, reservations, private dining, gift cards, and press coverage.",
+            "Built polished interactions such as gallery lightboxes, modals, mobile drawer navigation, and animated section reveals.",
+            "Created a strong visual system with luxury typography, dark-surface styling, and high-end hospitality presentation.",
+            "Implemented responsive layouts that preserve both visual impact and usability across devices."
+        ],
+        "outcomes": [
+            "Delivered a strong sales-demo experience for hospitality-focused web presentation.",
+            "Showcased frontend craftsmanship through branded motion, component reuse, and conversion-oriented page architecture.",
+            "Created a flexible foundation that could be extended into a real restaurant marketing site or booking product."
+        ],
+        "screenshots": [
+            "https://i.ibb.co.com/r2LKpfL1/restaurant-eb-vercel-app.png",
+            "https://i.ibb.co.com/rGvrXjGT/restaurant-eb-vercel-app-1.png",
+            "https://i.ibb.co.com/39GbVv33/restaurant-eb-vercel-app-2.png",
+            "https://i.ibb.co.com/xqjwzSVV/restaurant-eb-vercel-app-press.png",
+            "https://i.ibb.co.com/xtV2p4J5/restaurant-eb-vercel-app-press-1.png",
+            "https://i.ibb.co.com/HfVprgX9/restaurant-eb-vercel-app-press-2.png"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Study Abroad Counselor - Interactive University Recommendation Experience",
+        "description": "An interactive study abroad guidance experience that walks students through a multilingual consultation flow, analyzes their preferences, and presents personalized university recommendations in a polished, assistant-style interface.",
+        "image": "https://i.ibb.co.com/5ZCqW1c/studyaboard-vercel-app.png",
+        "tech": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "TailwindCSS",
+            "Framer Motion",
+            "Recharts"
+        ],
+        "live": "https://studyaboard.vercel.app",
+        "github": "https://github.com/ebrahim2355/study-aboard",
+        "featured": true,
+        "role": "Frontend Developer",
+        "duration": "Interactive product concept build",
+        "problem": "Students exploring international education often feel overwhelmed by country, degree, budget, language, and career decisions, making it hard to identify realistic and high-fit options.",
+        "decisions": [
+            "Designed the experience as a guided multi-step questionnaire to simplify decision-making and reduce cognitive overload.",
+            "Added bilingual Bangla and English support to make the product more accessible to local students.",
+            "Used a structured recommendation engine to map user answers into curated university shortlists with contextual reasoning.",
+            "Persisted questionnaire and result state across screens to keep the experience smooth and conversational.",
+            "Applied motion, assistant-style interactions, and progressive analysis states to make the guidance flow feel more engaging."
+        ],
+        "highlights": [
+            "Built an onboarding flow that collects destination, degree, budget, subject, academic background, English proficiency, and career goals.",
+            "Created personalized university recommendation cards with match scores, program suggestions, and scholarship context.",
+            "Implemented multilingual interface behavior and a polished counselor-style user journey.",
+            "Focused on frontend storytelling and product experience rather than a generic form-based workflow."
+        ],
+        "outcomes": [
+            "Made a complex study abroad discovery process feel more guided and user-friendly.",
+            "Demonstrated strong frontend product thinking through structured flows and personalized results.",
+            "Created a reusable foundation for future expansion into a richer counseling or advisory platform."
+        ],
+        "screenshots": [
+            "https://i.ibb.co.com/5ZCqW1c/studyaboard-vercel-app.png",
+            "https://i.ibb.co.com/fVDDN7ym/studyaboard-vercel-app-1.png",
+            "https://i.ibb.co.com/rK87mGwM/studyaboard-vercel-app-2.png"
         ]
     }
 ]
