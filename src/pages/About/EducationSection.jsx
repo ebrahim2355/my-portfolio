@@ -14,9 +14,9 @@ export default function EducationSection() {
                     BSc in Computer Science
                 </h3>
                 <p className="mt-2 text-base-content/70">University of Rajshahi</p>
-                <p className="mt-1 text-base-content/60">2022 - Present</p>
+                <p className="mt-1 text-base-content/60">2020 - 2025</p>
                 <p className="mt-4 text-base-content/80">
-                    I am currently studying for my BSc in Computer Science while building practical web applications.
+                    Completed a Bachelor of Science in Computer Science, building a strong foundation in programming, problem solving, software engineering concepts, and practical application development alongside academic coursework.
                 </p>
             </motion.div>
         </section>
