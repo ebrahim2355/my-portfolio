@@ -50,7 +50,7 @@ The codebase is structured for maintainability with reusable components, page-le
 
 ## 2. Live Demo
 
-- Production URL: https://web-ebrahim-portfolio.vercel.app/
+- Production URL: https://ebrahim.dev
 
 ---
 
