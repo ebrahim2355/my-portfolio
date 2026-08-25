@@ -49,7 +49,9 @@ body {
   overflow-x: hidden !important;
 }
 
-#root {
+/* Next.js renders into <body> rather than a #root div, so the min-height that
+   used to sit on #root now applies to the app shell wrapper. */
+#app-root {
   min-height: 100vh;
 }
 
