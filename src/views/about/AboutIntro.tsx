@@ -1,7 +1,9 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { Link } from "react-router";
+import Link from "next/link";
 import { FaDownload } from "react-icons/fa6";
-import myPhoto from "../../assets/my-photo.jpg";
+import myPhoto from "@/assets/my-photo.jpg";
 
 export default function AboutIntro() {
     return (
@@ -12,7 +14,7 @@ export default function AboutIntro() {
                 className="flex justify-center"
             >
                 <div className="w-48 h-48 md:w-64 md:h-64 rounded-2xl border-4 border-primary glow overflow-hidden">
-                    <img src={myPhoto} alt="Portrait of Ebrahim" className="w-full h-full object-cover" />
+                    <img src={myPhoto.src} alt="Portrait of Ebrahim" className="w-full h-full object-cover" />
                 </div>
             </motion.div>
 
@@ -34,7 +36,7 @@ export default function AboutIntro() {
                         <FaDownload />
                         Download Resume
                     </a>
-                    <Link to="/contact" className="btn btn-secondary btn-neon-secondary px-6">
+                    <Link href="/contact" className="btn btn-secondary btn-neon-secondary px-6">
                         Contact Me
                     </Link>
                 </div>

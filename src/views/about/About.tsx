@@ -1,4 +1,4 @@
-import NeonParticles from "../../components/NeonParticles";
+import NeonParticles from "@/components/NeonParticles";
 import AboutHeader from "./AboutHeader";
 import AboutIntro from "./AboutIntro";
 import CTASection from "./CTASection";

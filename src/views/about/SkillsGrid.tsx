@@ -1,5 +1,7 @@
+"use client";
+
 import { motion } from "framer-motion";
-import skills from "../../data/skills.json";
+import { skills } from "@/data";
 
 export default function SkillsGrid() {
     return (
