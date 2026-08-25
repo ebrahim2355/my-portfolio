@@ -1,14 +1,36 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
+
+interface Spark {
+    id: number;
+    x: number;
+    y: number;
+    size: number;
+    life: number;
+    driftX: number;
+    driftY: number;
+}
+
+interface Streak {
+    id: number;
+    x: number;
+    y: number;
+    length: number;
+    angle: number;
+    thickness: number;
+    life: number;
+}
 
 export default function FireCursor() {
     const [enabled, setEnabled] = useState(false);
     const [visible, setVisible] = useState(false);
-    const [sparks, setSparks] = useState([]);
-    const [streaks, setStreaks] = useState([]);
-    const cursorRef = useRef(null);
+    const [sparks, setSparks] = useState<Spark[]>([]);
+    const [streaks, setStreaks] = useState<Streak[]>([]);
+    const cursorRef = useRef<HTMLDivElement | null>(null);
     const currentRef = useRef({ x: 0, y: 0 });
     const targetRef = useRef({ x: 0, y: 0 });
-    const previousRef = useRef(null);
+    const previousRef = useRef<{ x: number; y: number } | null>(null);
     const rafRef = useRef(0);
     const sparkTimerRef = useRef(0);
     const streakTimerRef = useRef(0);
@@ -49,9 +71,9 @@ export default function FireCursor() {
 
         document.documentElement.classList.add("fire-cursor-active");
 
-        const spawnSpark = (x, y) => {
+        const spawnSpark = (x: number, y: number) => {
             const id = sparkIdRef.current++;
-            const spark = {
+            const spark: Spark = {
                 id,
                 x: x + (Math.random() * 12 - 6),
                 y: y + (Math.random() * 10 - 5),
@@ -71,7 +93,7 @@ export default function FireCursor() {
             }, spark.life);
         };
 
-        const spawnStreak = (fromX, fromY, toX, toY) => {
+        const spawnStreak = (fromX: number, fromY: number, toX: number, toY: number) => {
             const dx = toX - fromX;
             const dy = toY - fromY;
             const length = Math.hypot(dx, dy);
@@ -81,7 +103,7 @@ export default function FireCursor() {
             }
 
             const id = streakIdRef.current++;
-            const streak = {
+            const streak: Streak = {
                 id,
                 x: fromX,
                 y: fromY,
@@ -101,7 +123,7 @@ export default function FireCursor() {
             }, streak.life);
         };
 
-        const handleMove = (e) => {
+        const handleMove = (e: MouseEvent) => {
             targetRef.current.x = e.clientX;
             targetRef.current.y = e.clientY;
             setVisible(true);
@@ -125,7 +147,7 @@ export default function FireCursor() {
             previousRef.current = null;
         };
 
-        const handleEnter = (e) => {
+        const handleEnter = (e: MouseEvent) => {
             setVisible(true);
             if (typeof e?.clientX === "number" && typeof e?.clientY === "number") {
                 targetRef.current.x = e.clientX;
@@ -199,15 +221,17 @@ export default function FireCursor() {
                 <span
                     key={spark.id}
                     className="fire-spark"
-                    style={{
-                        left: `${spark.x}px`,
-                        top: `${spark.y}px`,
-                        width: `${spark.size}px`,
-                        height: `${spark.size}px`,
-                        "--spark-drift-x": `${spark.driftX}px`,
-                        "--spark-drift-y": `${spark.driftY}px`,
-                        animationDuration: `${spark.life}ms`,
-                    }}
+                    style={
+                        {
+                            left: `${spark.x}px`,
+                            top: `${spark.y}px`,
+                            width: `${spark.size}px`,
+                            height: `${spark.size}px`,
+                            "--spark-drift-x": `${spark.driftX}px`,
+                            "--spark-drift-y": `${spark.driftY}px`,
+                            animationDuration: `${spark.life}ms`,
+                        } as React.CSSProperties
+                    }
                 ></span>
             ))}
         </div>
