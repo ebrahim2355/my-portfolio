@@ -1,16 +1,27 @@
-import { useMemo } from "react";
+"use client";
 
-export default function NeonParticles({ count = 20 }) {
-    const particles = useMemo(
-        () =>
-            [...Array(count)].map(() => ({
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            size: Math.random() * 3 + 2,
-            delay: Math.random() * 5,
-            })),
-        [count]
-    );
+import useRandomParticles from "@/hooks/useRandomParticles";
+
+interface Particle {
+    top: string;
+    left: string;
+    size: number;
+    delay: number;
+}
+
+const makeParticle = (): Particle => ({
+    top: `${Math.random() * 100}%`,
+    left: `${Math.random() * 100}%`,
+    size: Math.random() * 3 + 2,
+    delay: Math.random() * 5,
+});
+
+interface NeonParticlesProps {
+    count?: number;
+}
+
+export default function NeonParticles({ count = 20 }: NeonParticlesProps) {
+    const particles = useRandomParticles(count, makeParticle);
 
     return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
