@@ -1,8 +1,7 @@
-// src/pages/Home/StatsSection.jsx
+"use client";
+
 import { motion } from "framer-motion";
-import projects from "../../data/projects.json";
-import skills from "../../data/skills.json";
-import experience from "../../data/experience.json";
+import { experience, projects, skills } from "@/data";
 
 export default function StatsSection() {
     const stats = [

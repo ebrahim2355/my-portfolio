@@ -1,5 +1,7 @@
+"use client";
+
 import { motion } from "framer-motion";
-import experience from "../../data/experience.json";
+import { experience } from "@/data";
 
 export default function AboutSection() {
     const exp = experience[0];

@@ -1,10 +1,9 @@
-// src/pages/Home/HeroSection.jsx
+"use client";
+
 import { motion } from "framer-motion";
-import { Link } from "react-router";
-import myPhoto from "../../assets/my-photo.jpg";
-import projects from "../../data/projects.json";
-import skills from "../../data/skills.json";
-import experience from "../../data/experience.json";
+import Link from "next/link";
+import myPhoto from "@/assets/my-photo.jpg";
+import { experience, projects, skills } from "@/data";
 import { FaDownload } from "react-icons/fa6";
 
 const container = {
@@ -14,14 +13,26 @@ const container = {
         y: 0,
         transition: { staggerChildren: 0.06, when: "beforeChildren" },
     },
-};
+} as const;
 const item = {
     hidden: { opacity: 0, y: 12 },
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 120 } },
-};
+} as const;
+
+export interface HeroParticle {
+    top: string;
+    left: string;
+    size: number;
+    delay: number;
+}
+
+interface HeroSectionProps {
+    particles: HeroParticle[];
+    mousePos: { x: number; y: number };
+}
 
 // Split text helper
-const Split = ({ text }) => (
+const Split = ({ text }: { text: string }) => (
     <span aria-label={text}>
         {text.split(" ").map((word, wordIndex) => (
             <span key={`${word}-${wordIndex}`} className="inline-block mr-[0.35em] last:mr-0">
@@ -44,7 +55,7 @@ const Split = ({ text }) => (
     </span>
 );
 
-export default function HeroSection({ particles, mousePos }) {
+export default function HeroSection({ particles, mousePos }: HeroSectionProps) {
     const projectsCount = projects.length; const skillsCount = skills.length; const experienceCount = experience.length;
     return (
         <section className="min-h-[85vh] flex flex-col md:flex-row items-center justify-between px-6 md:px-16 gap-10 relative z-10 max-w-7xl mx-auto">
@@ -93,7 +104,7 @@ export default function HeroSection({ particles, mousePos }) {
                     className="mt-8 flex justify-center md:hidden"
                 >
                     <div className="w-[260px] h-[260px] rounded-full border-4 border-primary glow overflow-hidden shadow-xl">
-                        <img src={myPhoto} alt="Ebrahim" className="w-full h-full object-cover" />
+                        <img src={myPhoto.src} alt="Ebrahim" className="w-full h-full object-cover" />
                     </div>
                 </motion.div>
 
@@ -102,7 +113,7 @@ export default function HeroSection({ particles, mousePos }) {
                         <FaDownload />
                         Download Resume
                     </a>
-                    <Link to="/contact" className="btn btn-secondary btn-neon-secondary px-6 py-3 text-sm sm:text-base">
+                    <Link href="/contact" className="btn btn-secondary btn-neon-secondary px-6 py-3 text-sm sm:text-base">
                         Contact Me
                     </Link>
                 </motion.div>
@@ -120,7 +131,7 @@ export default function HeroSection({ particles, mousePos }) {
                 className="hidden md:block"
             >
                 <div className="w-[260px] h-[260px] md:w-[320px] md:h-80 rounded-full border-4 border-primary glow overflow-hidden shadow-xl">
-                    <img src={myPhoto} alt="Ebrahim" className="w-full h-full object-cover" />
+                    <img src={myPhoto.src} alt="Ebrahim" className="w-full h-full object-cover" />
                 </div>
             </motion.div>
         </section >

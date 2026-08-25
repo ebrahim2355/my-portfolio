@@ -1,6 +1,8 @@
-import { Link } from "react-router";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
-import projects from "../../data/projects.json";
+import { projects } from "@/data";
 
 export default function FeaturedProjects() {
     const featured = projects.filter((p) => p.featured).slice(0, 2);
@@ -104,7 +106,7 @@ export default function FeaturedProjects() {
                 transition={{ duration: 0.5 }}
             >
                 <Link
-                    to="/projects"
+                    href="/projects"
                     className="btn btn-primary btn-wide btn-neon px-10 py-3 text-lg font-semibold hover:scale-105 transition-transform"
                 >
                     View All Projects &rarr;

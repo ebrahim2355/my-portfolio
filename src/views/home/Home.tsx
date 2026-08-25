@@ -1,28 +1,29 @@
-// src/pages/Home/Home.jsx
-import { useEffect, useMemo, useRef, useState } from "react";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
 import FeaturedProjects from "./FeaturedProjects";
 import StatsSection from "./StatsSection";
+import useRandomParticles from "@/hooks/useRandomParticles";
+import type { HeroParticle } from "./HeroSection";
+
+const makeParticle = (): HeroParticle => ({
+    top: `${Math.random() * 100}%`,
+    left: `${Math.random() * 100}%`,
+    size: Math.random() * 3 + 2,
+    delay: Math.random() * 4,
+});
 
 export default function Home() {
-    const particles = useMemo(
-        () =>
-            [...Array(25)].map(() => ({
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                size: Math.random() * 3 + 2,
-                delay: Math.random() * 4,
-            })),
-        []
-    );
+    const particles = useRandomParticles(25, makeParticle);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const rafRef = useRef(0);
 
     // parallax effect
     useEffect(() => {
-        const handle = (e) => {
+        const handle = (e: MouseEvent) => {
             if (rafRef.current) {
                 return;
             }

@@ -1,6 +1,7 @@
-// src/pages/Home/SkillsSection.jsx
+"use client";
+
 import { motion } from "framer-motion";
-import skills from "../../data/skills.json";
+import { skills } from "@/data";
 
 export default function SkillsSection() {
     return (
