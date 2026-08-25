@@ -1,7 +1,9 @@
-import { useMemo } from "react";
-import { Link } from "react-router";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa6";
+import useRandomParticles from "@/hooks/useRandomParticles";
 
 const internalLinks = [
     { label: "Home", to: "/" },
@@ -10,16 +12,20 @@ const internalLinks = [
     { label: "Contact", to: "/contact" },
 ];
 
+interface Particle {
+    left: string;
+    size: number;
+    delay: number;
+}
+
+const makeParticle = (): Particle => ({
+    left: `${Math.random() * 100}%`,
+    size: Math.random() * 2 + 1,
+    delay: Math.random() * 5,
+});
+
 export default function Footer() {
-    const particles = useMemo(
-        () =>
-            [...Array(15)].map(() => ({
-                left: `${Math.random() * 100}%`,
-                size: Math.random() * 2 + 1,
-                delay: Math.random() * 5,
-            })),
-        []
-    );
+    const particles = useRandomParticles(15, makeParticle);
 
     return (
         <footer className="relative mt-32 pt-20 pb-12 bg-base-200/40 backdrop-blur-xl overflow-hidden">
@@ -113,7 +119,7 @@ export default function Footer() {
                     className="mt-10 flex justify-center gap-6 flex-wrap text-base-content/70"
                 >
                     {internalLinks.map((link) => (
-                        <Link key={link.to} to={link.to} className="hover:text-primary transition">
+                        <Link key={link.to} href={link.to} className="hover:text-primary transition">
                             {link.label}
                         </Link>
                     ))}
@@ -124,6 +130,10 @@ export default function Footer() {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                     className="mt-10 text-base-content/50 text-sm"
+                    // The prerendered year comes from the build machine's clock, the
+                    // hydrated one from the visitor's. They only disagree across a
+                    // New Year boundary, and the client value wins.
+                    suppressHydrationWarning
                 >
                     &copy; {new Date().getFullYear()} Ebrahim - All Rights Reserved
                 </motion.p>
