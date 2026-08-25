@@ -1,19 +1,26 @@
-import { useState } from "react";
-import { Link, useParams } from "react-router";
-import { motion } from "framer-motion";
-import projects from "../../data/projects.json";
-import NeonParticles from "../../components/NeonParticles";
+"use client";
 
-export default function ProjectDetails() {
-    const { id } = useParams();
-    const project = projects.find((p) => p.id == id);
-    const [activeImage, setActiveImage] = useState(null);
+import { useState } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { projects } from "@/data";
+import NeonParticles from "@/components/NeonParticles";
+
+interface ProjectDetailsProps {
+    id: string;
+}
+
+export default function ProjectDetails({ id }: ProjectDetailsProps) {
+    // The original used `p.id == id` (number vs string). Number(id) reproduces that
+    // coercion exactly, including forms like "01" that loose equality also matched.
+    const project = projects.find((p) => Number(id) === p.id);
+    const [activeImage, setActiveImage] = useState<string | null>(null);
 
     if (!project) {
         return (
             <main className="pt-24 text-center text-primary">
                 <h1 className="text-4xl font-bold">Project Not Found</h1>
-                <Link to="/projects" className="btn btn-primary btn-neon mt-6">
+                <Link href="/projects" className="btn btn-primary btn-neon mt-6">
                     Back to Projects
                 </Link>
             </main>
@@ -25,7 +32,7 @@ export default function ProjectDetails() {
             <NeonParticles count={40} />
 
             <div className="relative z-10 max-w-5xl mx-auto px-6">
-                <Link to="/projects" className="btn btn-outline btn-primary mb-6 glow">
+                <Link href="/projects" className="btn btn-outline btn-primary mb-6 glow">
                     &larr; Back
                 </Link>
 

@@ -1,14 +1,16 @@
+"use client";
+
 import { useMemo, useState } from "react";
-import { Link } from "react-router";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import projects from "../../data/projects.json";
-import NeonParticles from "../../components/NeonParticles";
+import { projects } from "@/data";
+import NeonParticles from "@/components/NeonParticles";
 
 export default function Projects() {
     const [filter, setFilter] = useState("All");
 
     const techList = useMemo(() => {
-        const set = new Set();
+        const set = new Set<string>();
         projects.forEach((p) => p.tech?.forEach((t) => set.add(t)));
         return ["All", ...Array.from(set)];
     }, []);
@@ -50,7 +52,7 @@ export default function Projects() {
                         <button
                             key={tech}
                             onClick={() => setFilter(tech)}
-                            className={`px-4 py-2 rounded-lg border 
+                            className={`px-4 py-2 rounded-lg border
                                 ${filter === tech
                                     ? "border-primary bg-primary text-black"
                                     : "border-primary/40 text-primary hover:border-primary"}
@@ -105,7 +107,7 @@ export default function Projects() {
 
                                 <div className="mt-auto flex gap-3 flex-wrap">
                                     <Link
-                                        to={`/projects/${p.id}`}
+                                        href={`/projects/${p.id}`}
                                         className="btn btn-sm btn-accent btn-neon-accent px-4 flex-1 w-full whitespace-nowrap"
                                     >
                                         View Details
