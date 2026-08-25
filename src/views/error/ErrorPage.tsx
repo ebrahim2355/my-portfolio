@@ -1,6 +1,8 @@
-import { Link } from "react-router";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
-import NeonParticles from "../../components/NeonParticles";
+import NeonParticles from "@/components/NeonParticles";
 
 export default function ErrorPage() {
     return (
@@ -45,11 +47,11 @@ export default function ErrorPage() {
                     transition={{ delay: 1 }}
                     className="flex flex-col md:flex-row gap-4 justify-center mt-10"
                 >
-                    <Link to="/" className="btn btn-primary btn-neon px-8 py-3">
+                    <Link href="/" className="btn btn-primary btn-neon px-8 py-3">
                         Go Home
                     </Link>
 
-                    <Link to="/projects" className="btn btn-secondary btn-neon-secondary px-8 py-3">
+                    <Link href="/projects" className="btn btn-secondary btn-neon-secondary px-8 py-3">
                         View Projects
                     </Link>
                 </motion.div>
