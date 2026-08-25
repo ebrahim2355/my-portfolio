@@ -1,9 +1,17 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import emailjs from "emailjs-com";
 import toast from "react-hot-toast";
 import { FaEnvelope, FaLocationDot, FaPhone } from "react-icons/fa6";
-import NeonParticles from "../../components/NeonParticles";
+import NeonParticles from "@/components/NeonParticles";
+
+interface ContactFormValues {
+    name: string;
+    email: string;
+    message: string;
+}
 
 export default function Contact() {
     const {
@@ -11,17 +19,17 @@ export default function Contact() {
         handleSubmit,
         reset,
         formState: { errors },
-    } = useForm();
+    } = useForm<ContactFormValues>();
 
-    const onSubmit = (data) => {
+    const onSubmit = (data: ContactFormValues) => {
         toast.loading("Sending...", { id: "send" });
 
         emailjs
             .send(
-                import.meta.env.VITE_EMAILJS_SERVICE_ID,
-                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-                data,
-                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+                data as unknown as Record<string, unknown>,
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
             )
             .then(() => {
                 toast.success("Message sent successfully!", { id: "send" });
