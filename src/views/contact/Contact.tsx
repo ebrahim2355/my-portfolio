@@ -71,17 +71,17 @@ export default function Contact() {
                         <h2 className="text-2xl font-bold text-primary glow">Let&apos;s Connect</h2>
 
                         <div className="flex items-center gap-4">
-                            <FaEnvelope className="text-primary text-3xl glow" />
+                            <FaEnvelope className="text-primary text-3xl glow-icon" />
                             <p className="text-base-content/80">web.ebrahimali@gmail.com</p>
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <FaPhone className="text-primary text-3xl glow" />
+                            <FaPhone className="text-primary text-3xl glow-icon" />
                             <p className="text-base-content/80">+880 1771-899062</p>
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <FaLocationDot className="text-primary text-3xl glow" />
+                            <FaLocationDot className="text-primary text-3xl glow-icon" />
                             <p className="text-base-content/80">Rajshahi, Bangladesh</p>
                         </div>
                     </motion.div>

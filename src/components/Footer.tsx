@@ -74,7 +74,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.2 }}
-                        className="text-primary text-3xl glow hover:text-secondary transition"
+                        className="text-primary text-3xl glow-icon hover:text-secondary transition"
                         aria-label="Visit GitHub profile"
                     >
                         <FaGithub />
@@ -85,7 +85,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.2 }}
-                        className="text-primary text-3xl glow hover:text-secondary transition"
+                        className="text-primary text-3xl glow-icon hover:text-secondary transition"
                         aria-label="Visit LinkedIn profile"
                     >
                         <FaLinkedin />
@@ -96,7 +96,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.2 }}
-                        className="text-primary text-3xl glow hover:text-secondary transition"
+                        className="text-primary text-3xl glow-icon hover:text-secondary transition"
                         aria-label="Visit Facebook profile"
                     >
                         <FaFacebook />
@@ -105,7 +105,7 @@ export default function Footer() {
                     <motion.a
                         href="mailto:web.ebrahimali@gmail.com"
                         whileHover={{ scale: 1.2 }}
-                        className="text-primary text-3xl glow hover:text-secondary transition"
+                        className="text-primary text-3xl glow-icon hover:text-secondary transition"
                         aria-label="Send email"
                     >
                         <FaEnvelope />
