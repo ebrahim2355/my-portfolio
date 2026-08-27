@@ -11,6 +11,7 @@ const links = [
     { name: "Home", to: "/" },
     { name: "About", to: "/about" },
     { name: "Projects", to: "/projects" },
+    { name: "Open Source", to: "/open-source" },
     { name: "Contact", to: "/contact" },
 ];
 
