@@ -1,9 +1,11 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import myPhoto from "@/assets/my-photo.jpg";
 import { experience, projects, skills } from "@/data";
+import useParallax from "@/hooks/useParallax";
 import { FaDownload } from "react-icons/fa6";
 
 const container = {
@@ -28,7 +30,6 @@ export interface HeroParticle {
 
 interface HeroSectionProps {
     particles: HeroParticle[];
-    mousePos: { x: number; y: number };
 }
 
 // Split text helper
@@ -55,18 +56,21 @@ const Split = ({ text }: { text: string }) => (
     </span>
 );
 
-export default function HeroSection({ particles, mousePos }: HeroSectionProps) {
+export default function HeroSection({ particles }: HeroSectionProps) {
     const projectsCount = projects.length; const skillsCount = skills.length; const experienceCount = experience.length;
+    // The pointer offset is written straight to this node, so moving the mouse
+    // no longer re-renders the home page.
+    const parallaxRef = useRef<HTMLDivElement>(null);
+    useParallax(parallaxRef);
+
     return (
         <section className="min-h-[85vh] flex flex-col md:flex-row items-center justify-between px-6 md:px-16 gap-10 relative z-10 max-w-7xl mx-auto">
 
             {/* PARALLAX PARTICLES */}
             <div
+                ref={parallaxRef}
                 className="absolute inset-0 pointer-events-none"
-                style={{
-                    transform: `translate(${mousePos.x}px, ${mousePos.y}px)`,
-                    transition: "transform 0.1s ease",
-                }}
+                style={{ transition: "transform 0.1s ease" }}
             >
                 {particles.map((p, i) => (
                     <span

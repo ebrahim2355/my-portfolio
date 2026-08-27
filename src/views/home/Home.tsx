@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
@@ -18,38 +17,13 @@ const makeParticle = (): HeroParticle => ({
 
 export default function Home() {
     const particles = useRandomParticles(25, makeParticle);
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-    const rafRef = useRef(0);
 
-    // parallax effect
-    useEffect(() => {
-        const handle = (e: MouseEvent) => {
-            if (rafRef.current) {
-                return;
-            }
-
-            rafRef.current = window.requestAnimationFrame(() => {
-                setMousePos({
-                    x: (e.clientX / window.innerWidth - 0.5) * 10,
-                    y: (e.clientY / window.innerHeight - 0.5) * 10,
-                });
-                rafRef.current = 0;
-            });
-        };
-
-        window.addEventListener("mousemove", handle, { passive: true });
-
-        return () => {
-            window.removeEventListener("mousemove", handle);
-            if (rafRef.current) {
-                window.cancelAnimationFrame(rafRef.current);
-            }
-        };
-    }, []);
-
+    // The hero's mouse parallax lives in HeroSection via useParallax, which
+    // writes the transform to its own node. Holding that offset here re-rendered
+    // every section below on each frame of pointer movement.
     return (
         <main className="pt-28 relative overflow-hidden">
-            <HeroSection particles={particles} mousePos={mousePos} />
+            <HeroSection particles={particles} />
             <AboutSection />
             <SkillsSection />
             <FeaturedProjects />
