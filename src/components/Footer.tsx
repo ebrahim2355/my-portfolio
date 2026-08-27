@@ -9,6 +9,7 @@ const internalLinks = [
     { label: "Home", to: "/" },
     { label: "About", to: "/about" },
     { label: "Projects", to: "/projects" },
+    { label: "Open Source", to: "/open-source" },
     { label: "Contact", to: "/contact" },
 ];
 
