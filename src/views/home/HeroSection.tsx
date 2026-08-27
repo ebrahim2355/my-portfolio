@@ -103,7 +103,7 @@ export default function HeroSection({ particles, mousePos }: HeroSectionProps) {
                     transition={{ duration: 0.9 }}
                     className="mt-8 flex justify-center md:hidden"
                 >
-                    <div className="w-[260px] h-[260px] rounded-full border-4 border-primary glow overflow-hidden shadow-xl">
+                    <div className="w-[260px] h-[260px] rounded-full border-4 border-primary glow-box overflow-hidden shadow-xl">
                         <img src={myPhoto.src} alt="Ebrahim" className="w-full h-full object-cover" />
                     </div>
                 </motion.div>
@@ -119,7 +119,7 @@ export default function HeroSection({ particles, mousePos }: HeroSectionProps) {
                 </motion.div>
 
                 {/* quick stats */}
-                <motion.div className="mt-8 flex gap-6 flex-wrap justify-center md:justify-start" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }} > <div className="p-3 rounded-lg bg-base-200 glow border border-primary/30 min-w-[110px] text-center"> <div className="text-2xl md:text-3xl font-bold text-primary">{projectsCount}</div> <div className="text-sm text-base-content/70">Projects</div> </div> <div className="p-3 rounded-lg bg-base-200 glow border border-primary/30 min-w-[110px] text-center"> <div className="text-2xl md:text-3xl font-bold text-primary">{skillsCount}</div> <div className="text-sm text-base-content/70">Skills</div> </div> <div className="p-3 rounded-lg bg-base-200 glow border border-primary/30 min-w-[110px] text-center"> <div className="text-2xl md:text-3xl font-bold text-primary flex justify-center gap-2 items-center">{experienceCount} <span className="text-xl">year</span></div> <div className="text-sm text-base-content/70">Experience</div> </div> </motion.div>
+                <motion.div className="mt-8 flex gap-6 flex-wrap justify-center md:justify-start" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }} > <div className="p-3 rounded-lg bg-base-200 glow-box border border-primary/30 min-w-[110px] text-center"> <div className="text-2xl md:text-3xl font-bold text-primary">{projectsCount}</div> <div className="text-sm text-base-content/70">Projects</div> </div> <div className="p-3 rounded-lg bg-base-200 glow-box border border-primary/30 min-w-[110px] text-center"> <div className="text-2xl md:text-3xl font-bold text-primary">{skillsCount}</div> <div className="text-sm text-base-content/70">Skills</div> </div> <div className="p-3 rounded-lg bg-base-200 glow-box border border-primary/30 min-w-[110px] text-center"> <div className="text-2xl md:text-3xl font-bold text-primary flex justify-center gap-2 items-center">{experienceCount} <span className="text-xl">year</span></div> <div className="text-sm text-base-content/70">Experience</div> </div> </motion.div>
             </motion.div>
 
 
@@ -130,7 +130,7 @@ export default function HeroSection({ particles, mousePos }: HeroSectionProps) {
                 transition={{ duration: 0.9 }}
                 className="hidden md:block"
             >
-                <div className="w-[260px] h-[260px] md:w-[320px] md:h-80 rounded-full border-4 border-primary glow overflow-hidden shadow-xl">
+                <div className="w-[260px] h-[260px] md:w-[320px] md:h-80 rounded-full border-4 border-primary glow-box overflow-hidden shadow-xl">
                     <img src={myPhoto.src} alt="Ebrahim" className="w-full h-full object-cover" />
                 </div>
             </motion.div>

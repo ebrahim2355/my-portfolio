@@ -9,7 +9,7 @@ export default function CTASection() {
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                className="p-10 rounded-2xl bg-base-200/40 glow border border-primary/30 inline-block"
+                className="p-10 rounded-2xl bg-base-200/40 glow-box border border-primary/30 inline-block"
             >
                 <h3 className="text-2xl text-primary font-bold">Want to work together?</h3>
                 <p className="mt-2 text-base-content/70">I&apos;m open to freelance work and full-time opportunities.</p>

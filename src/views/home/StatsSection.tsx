@@ -22,7 +22,7 @@ export default function StatsSection() {
                 {stats.map((s, i) => (
                     <motion.div
                         key={i}
-                        className="p-6 rounded-xl bg-base-200 glow border border-primary/30 text-center"
+                        className="p-6 rounded-xl bg-base-200 glow-box border border-primary/30 text-center"
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1 }}

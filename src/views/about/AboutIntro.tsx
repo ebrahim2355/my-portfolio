@@ -13,7 +13,7 @@ export default function AboutIntro() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 className="flex justify-center"
             >
-                <div className="w-48 h-48 md:w-64 md:h-64 rounded-2xl border-4 border-primary glow overflow-hidden">
+                <div className="w-48 h-48 md:w-64 md:h-64 rounded-2xl border-4 border-primary glow-box overflow-hidden">
                     <img src={myPhoto.src} alt="Portrait of Ebrahim" className="w-full h-full object-cover" />
                 </div>
             </motion.div>

@@ -18,7 +18,7 @@ export default function SkillsGrid() {
                         initial={{ opacity: 0, y: 12 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.05 }}
-                        className="p-4 rounded-xl bg-base-200 glow border border-primary/20"
+                        className="p-4 rounded-xl bg-base-200 glow-box border border-primary/20"
                     >
                         <div className="flex justify-between">
                             <span className="font-bold text-primary">{s.name}</span>

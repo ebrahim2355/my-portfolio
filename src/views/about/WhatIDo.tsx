@@ -29,7 +29,7 @@ export default function WhatIDo() {
                         initial={{ opacity: 0, y: 12 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.15 }}
-                        className="p-6 rounded-2xl bg-base-200/40 glow border border-primary/20"
+                        className="p-6 rounded-2xl bg-base-200/40 glow-box border border-primary/20"
                     >
                         <h3 className="text-xl font-bold text-primary">{item.title}</h3>
                         <p className="mt-2 text-base-content/70">{item.text}</p>

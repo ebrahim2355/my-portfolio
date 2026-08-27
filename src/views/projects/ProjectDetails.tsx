@@ -32,7 +32,7 @@ export default function ProjectDetails({ id }: ProjectDetailsProps) {
             <NeonParticles count={40} />
 
             <div className="relative z-10 max-w-5xl mx-auto px-6">
-                <Link href="/projects" className="btn btn-outline btn-primary mb-6 glow">
+                <Link href="/projects" className="btn btn-outline btn-primary mb-6 glow-box">
                     &larr; Back
                 </Link>
 
@@ -40,7 +40,7 @@ export default function ProjectDetails({ id }: ProjectDetailsProps) {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
-                    className="rounded-xl overflow-hidden border border-primary/40 glow shadow-xl"
+                    className="rounded-xl overflow-hidden border border-primary/40 glow-box shadow-xl"
                 >
                     <img
                         src={project.image}
@@ -80,7 +80,7 @@ export default function ProjectDetails({ id }: ProjectDetailsProps) {
                         initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.25 }}
-                        className="mt-8 p-6 rounded-xl bg-base-200/40 border border-primary/30 glow"
+                        className="mt-8 p-6 rounded-xl bg-base-200/40 border border-primary/30 glow-box"
                     >
                         <h3 className="text-2xl font-bold text-primary">Problem</h3>
                         <p className="mt-3 text-base-content/75 leading-relaxed">{project.problem}</p>
@@ -204,7 +204,7 @@ export default function ProjectDetails({ id }: ProjectDetailsProps) {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4 items-start">
                             {project.screenshots.map((img, i) => (
-                                <div key={i} className="self-start overflow-hidden rounded-xl border border-primary/30 glow">
+                                <div key={i} className="self-start overflow-hidden rounded-xl border border-primary/30 glow-box">
                                     <img
                                         src={img}
                                         alt={`${project.title} screenshot ${i + 1}`}
@@ -234,7 +234,7 @@ export default function ProjectDetails({ id }: ProjectDetailsProps) {
                         initial={{ scale: 0.7, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ type: "spring", stiffness: 120 }}
-                        className="max-w-[90%] max-h-[90%] rounded-xl border border-primary/50 glow shadow-2xl"
+                        className="max-w-[90%] max-h-[90%] rounded-xl border border-primary/50 glow-box shadow-2xl"
                     />
                 </motion.div>
             )}

@@ -33,7 +33,7 @@ export default function FeaturedProjects() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: i * 0.15 }}
                         viewport={{ once: true }}
-                        className="rounded-xl bg-base-200 glow border border-primary/30 overflow-hidden shadow-xl hover:shadow-primary/40 transition-all"
+                        className="rounded-xl bg-base-200 glow-box border border-primary/30 overflow-hidden shadow-xl hover:shadow-primary/40 transition-all"
                     >
                         <div className="h-48 w-full overflow-hidden">
                             <img

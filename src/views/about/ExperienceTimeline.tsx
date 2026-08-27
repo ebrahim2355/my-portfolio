@@ -17,7 +17,7 @@ export default function ExperienceTimeline() {
                         transition={{ delay: i * 0.1 }}
                         className="relative pl-8 mb-10"
                     >
-                        <span className="absolute -left-2 top-2 w-4 h-4 rounded-full bg-primary glow"></span>
+                        <span className="absolute -left-2 top-2 w-4 h-4 rounded-full bg-primary glow-box"></span>
 
                         <h3 className="text-xl font-bold text-primary">{exp.role}</h3>
                         <p className="text-sm text-base-content/70">{exp.company} - {exp.type}</p>

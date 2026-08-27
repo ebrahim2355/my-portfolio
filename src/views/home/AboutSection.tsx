@@ -15,12 +15,12 @@ export default function AboutSection() {
         >
             <h2 className="text-4xl md:text-6xl font-extrabold text-primary glow">About Me</h2>
 
-            <div className="mt-10 p-8 md:p-12 bg-base-200/40 rounded-2xl border border-primary/40 backdrop-blur-xl glow">
+            <div className="mt-10 p-8 md:p-12 bg-base-200/40 rounded-2xl border border-primary/40 backdrop-blur-xl glow-box">
                 <p className="text-lg md:text-xl text-base-content/80 leading-relaxed">{exp.description}</p>
 
                 <div className="mt-6 flex justify-center gap-4 flex-wrap">
                     {exp.skillsUsed.map((s, i) => (
-                        <span key={i} className="badge badge-primary px-4 py-3 text-base glow">
+                        <span key={i} className="badge badge-primary px-4 py-3 text-base glow-box">
                             {s}
                         </span>
                     ))}

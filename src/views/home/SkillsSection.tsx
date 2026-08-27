@@ -17,7 +17,7 @@ export default function SkillsSection() {
                         <motion.div
                             key={i}
                             whileHover={{ scale: 1.05 }}
-                            className="p-4 min-w-36 rounded-xl bg-base-200 border border-primary/20 glow text-center"
+                            className="p-4 min-w-36 rounded-xl bg-base-200 border border-primary/20 glow-box text-center"
                         >
                             <h3 className="text-xl font-bold text-primary">{s.name}</h3>
                             <p className="text-sm text-base-content/70">{s.category}</p>

@@ -91,7 +91,7 @@ export default function Contact() {
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="space-y-5 bg-base-200/40 p-8 rounded-xl border glow border-primary/30"
+                        className="space-y-5 bg-base-200/40 p-8 rounded-xl border glow-box border-primary/30"
                     >
                         <div>
                             <label htmlFor="contact-name" className="text-primary font-semibold">

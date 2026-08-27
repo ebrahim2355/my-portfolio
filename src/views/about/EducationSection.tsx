@@ -10,7 +10,7 @@ export default function EducationSection() {
             <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="mt-10 max-w-4xl mx-auto p-6 md:p-8 rounded-2xl bg-base-200/40 glow border border-primary/20"
+                className="mt-10 max-w-4xl mx-auto p-6 md:p-8 rounded-2xl bg-base-200/40 glow-box border border-primary/20"
             >
                 <h3 className="text-xl md:text-2xl font-bold text-primary">
                     BSc in Computer Science

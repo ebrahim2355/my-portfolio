@@ -56,7 +56,7 @@ export default function Projects() {
                                 ${filter === tech
                                     ? "border-primary bg-primary text-black"
                                     : "border-primary/40 text-primary hover:border-primary"}
-                                glow transition-all`}
+                                glow-box transition-all`}
                         >
                             {tech}
                         </button>
@@ -72,7 +72,7 @@ export default function Projects() {
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
                             whileHover={{ scale: 1.03 }}
-                            className="rounded-xl bg-base-200 glow border border-primary/30 overflow-hidden shadow-xl flex flex-col h-full"
+                            className="rounded-xl bg-base-200 glow-box border border-primary/30 overflow-hidden shadow-xl flex flex-col h-full"
                         >
                             <div className="h-48 w-full overflow-hidden">
                                 <img
