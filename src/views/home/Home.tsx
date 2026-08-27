@@ -4,6 +4,7 @@ import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
 import FeaturedProjects from "./FeaturedProjects";
+import OpenSourceSection from "./OpenSourceSection";
 import StatsSection from "./StatsSection";
 import useRandomParticles from "@/hooks/useRandomParticles";
 import type { HeroParticle } from "./HeroSection";
@@ -27,6 +28,7 @@ export default function Home() {
             <AboutSection />
             <SkillsSection />
             <FeaturedProjects />
+            <OpenSourceSection />
             <StatsSection />
         </main>
     );
