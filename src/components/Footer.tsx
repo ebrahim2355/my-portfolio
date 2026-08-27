@@ -47,8 +47,9 @@ export default function Footer() {
                             height: p.size,
                             background: "var(--color-primary)",
                             borderRadius: "50%",
-                            filter: "drop-shadow(0 0 6px var(--color-primary))",
+                            boxShadow: "0 0 6px var(--color-primary)",
                             animation: `footerFloat 4s ${p.delay}s infinite ease-in-out`,
+                            willChange: "transform, opacity",
                         }}
                     ></span>
                 ))}

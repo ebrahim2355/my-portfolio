@@ -97,9 +97,12 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  filter: drop-shadow(0 0 8px var(--color-primary));
+  /* box-shadow rather than a filter-based shadow: identical on a small solid
+     circle, but it does not give every particle its own filter surface. */
+  box-shadow: 0 0 8px var(--color-primary);
   animation: waveMove 6s infinite ease-in-out,
     pulseColor 4s infinite ease-in-out;
+  will-change: transform, opacity;
 }
 
 @keyframes drift {

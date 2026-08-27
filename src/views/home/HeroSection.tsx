@@ -79,8 +79,9 @@ export default function HeroSection({ particles, mousePos }: HeroSectionProps) {
                             height: p.size,
                             background: "var(--color-primary)",
                             borderRadius: "50%",
-                            filter: "drop-shadow(0 0 8px var(--color-primary))",
+                            boxShadow: "0 0 8px var(--color-primary)",
                             animation: `waveMove 6s ${p.delay}s infinite ease-in-out`,
+                            willChange: "transform, opacity",
                         }}
                     />
                 ))}

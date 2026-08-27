@@ -36,8 +36,12 @@ export default function NeonParticles({ count = 20 }: NeonParticlesProps) {
                         height: p.size,
                         background: "var(--color-primary)",
                         borderRadius: "50%",
-                        filter: "drop-shadow(0 0 8px var(--color-primary))",
+                        // box-shadow rather than a filter-based shadow: identical on a
+                        // small solid circle, but it avoids giving every particle its
+                        // own filter surface to rasterize.
+                        boxShadow: "0 0 8px var(--color-primary)",
                         animation: `waveMove 6s ${p.delay}s infinite ease-in-out`,
+                        willChange: "transform, opacity",
                         opacity: 0.8,
                     }}
                 ></span>
