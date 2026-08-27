@@ -56,11 +56,6 @@ body {
 }
 
 
-/* Neon glow utility you can apply anywhere */
-.glow {
-  filter: drop-shadow(0 0 10px var(--color-primary));
-}
-
 .nav-link {
   position: relative;
 }
@@ -123,8 +118,28 @@ body {
   }
 }
 
-/* === GLOW UTILITIES === */
+/* === GLOW UTILITIES ===
+   These all render the same neon halo, but `filter` is by far the most expensive
+   way to draw it: it forces the browser to rasterize the element's whole subtree
+   to an offscreen texture and blur its alpha mask on every repaint. On a card
+   that means re-rasterizing its text, badges and buttons each time it repaints,
+   which is what made scrolling janky.
+
+   So pick by what the element actually is:
+     .glow      text and inline labels  -> text-shadow
+     .glow-box  cards, tiles, framed images, dots -> box-shadow
+     .glow-icon SVG icons only -> filter (text-shadow does not paint on SVG)
+
+   Keep .glow-icon usage rare and small; it is the expensive one. */
 .glow {
+  text-shadow: 0 0 10px var(--color-primary);
+}
+
+.glow-box {
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+.glow-icon {
   filter: drop-shadow(0 0 10px var(--color-primary));
 }
 
