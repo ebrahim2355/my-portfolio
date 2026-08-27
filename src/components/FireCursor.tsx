@@ -2,48 +2,50 @@
 
 import { useEffect, useRef, useState } from "react";
 
-interface Spark {
-    id: number;
-    x: number;
-    y: number;
-    size: number;
-    life: number;
-    driftX: number;
-    driftY: number;
-}
+// Pool sizes match the caps the previous implementation enforced with
+// `prev.slice(-30)` / `prev.slice(-24)`. Slots are reused round-robin, so the
+// oldest particle is the one recycled — the same thing the slice did.
+const SPARK_POOL_SIZE = 32;
+const STREAK_POOL_SIZE = 26;
 
-interface Streak {
-    id: number;
-    x: number;
-    y: number;
-    length: number;
-    angle: number;
-    thickness: number;
-    life: number;
-}
+// Unchanged spawn cadence, so the trail looks exactly as dense as before.
+const SPARK_INTERVAL_MS = 24;
+const STREAK_INTERVAL_MS = 16;
+const MIN_STREAK_LENGTH = 6;
 
+const CURSOR_EASING = 0.24;
+
+/**
+ * Fire-trail cursor.
+ *
+ * Every spark and streak used to be a React state update, and each one also
+ * scheduled a `setTimeout` that fired a second update to remove it — roughly
+ * 160 re-renders a second while the pointer moved, each re-rendering up to 54
+ * nodes carrying three-layer box-shadows. Because the pointer usually moves
+ * while you scroll, that landed directly on top of scrolling.
+ *
+ * The visuals are identical, but the particles are now a fixed pool of nodes
+ * rendered once and driven imperatively: styles are written straight to the DOM
+ * and the fade is handed to the Web Animations API, which runs it off the main
+ * thread. React does no work at all once the layer has mounted.
+ */
 export default function FireCursor() {
     const [enabled, setEnabled] = useState(false);
-    const [visible, setVisible] = useState(false);
-    const [sparks, setSparks] = useState<Spark[]>([]);
-    const [streaks, setStreaks] = useState<Streak[]>([]);
+
     const cursorRef = useRef<HTMLDivElement | null>(null);
+    const sparkNodes = useRef<(HTMLSpanElement | null)[]>([]);
+    const streakNodes = useRef<(HTMLSpanElement | null)[]>([]);
+    const sparkAnims = useRef<(Animation | null)[]>([]);
+    const streakAnims = useRef<(Animation | null)[]>([]);
+
     const currentRef = useRef({ x: 0, y: 0 });
     const targetRef = useRef({ x: 0, y: 0 });
     const previousRef = useRef<{ x: number; y: number } | null>(null);
     const rafRef = useRef(0);
     const sparkTimerRef = useRef(0);
     const streakTimerRef = useRef(0);
-    const sparkIdRef = useRef(0);
-    const streakIdRef = useRef(0);
-    const mountedRef = useRef(true);
-
-    useEffect(() => {
-        mountedRef.current = true;
-        return () => {
-            mountedRef.current = false;
-        };
-    }, []);
+    const sparkSlotRef = useRef(0);
+    const streakSlotRef = useRef(0);
 
     useEffect(() => {
         const pointerQuery = window.matchMedia("(pointer: fine)");
@@ -71,26 +73,47 @@ export default function FireCursor() {
 
         document.documentElement.classList.add("fire-cursor-active");
 
+        // Captured once: these arrays are mutated in place and never reassigned,
+        // so holding the reference is safe and keeps cleanup honest.
+        const sparkAnimList = sparkAnims.current;
+        const streakAnimList = streakAnims.current;
+
+        const showCursor = (on: boolean) => {
+            cursorRef.current?.classList.toggle("is-visible", on);
+        };
+
         const spawnSpark = (x: number, y: number) => {
-            const id = sparkIdRef.current++;
-            const spark: Spark = {
-                id,
-                x: x + (Math.random() * 12 - 6),
-                y: y + (Math.random() * 10 - 5),
-                size: Math.random() * 4 + 2,
-                life: Math.random() * 320 + 620,
-                driftX: Math.random() * 26 - 13,
-                driftY: -(Math.random() * 54 + 36),
-            };
+            const slot = sparkSlotRef.current;
+            const node = sparkNodes.current[slot];
+            sparkSlotRef.current = (slot + 1) % SPARK_POOL_SIZE;
 
-            setSparks((prev) => [...prev.slice(-30), spark]);
+            if (!node) {
+                return;
+            }
 
-            window.setTimeout(() => {
-                if (!mountedRef.current) {
-                    return;
-                }
-                setSparks((prev) => prev.filter((item) => item.id !== id));
-            }, spark.life);
+            const size = Math.random() * 4 + 2;
+            const life = Math.random() * 320 + 620;
+            const driftX = Math.random() * 26 - 13;
+            const driftY = -(Math.random() * 54 + 36);
+
+            node.style.left = `${x + (Math.random() * 12 - 6)}px`;
+            node.style.top = `${y + (Math.random() * 10 - 5)}px`;
+            node.style.width = `${size}px`;
+            node.style.height = `${size}px`;
+
+            // Cancel first: animate() appends, so reusing a slot without this
+            // would pile up Animation objects on the node.
+            sparkAnimList[slot]?.cancel();
+            sparkAnimList[slot] = node.animate(
+                [
+                    { transform: "translate(0px, 0px) scale(1)", opacity: 1 },
+                    {
+                        transform: `translate(${driftX}px, ${driftY}px) scale(0.1)`,
+                        opacity: 0,
+                    },
+                ],
+                { duration: life, easing: "ease-out", fill: "forwards" },
+            );
         };
 
         const spawnStreak = (fromX: number, fromY: number, toX: number, toY: number) => {
@@ -98,57 +121,72 @@ export default function FireCursor() {
             const dy = toY - fromY;
             const length = Math.hypot(dx, dy);
 
-            if (length < 6) {
+            if (length < MIN_STREAK_LENGTH) {
                 return;
             }
 
-            const id = streakIdRef.current++;
-            const streak: Streak = {
-                id,
-                x: fromX,
-                y: fromY,
-                length,
-                angle: Math.atan2(dy, dx) * (180 / Math.PI),
-                thickness: Math.random() * 3 + 4,
-                life: Math.random() * 220 + 320,
-            };
+            const slot = streakSlotRef.current;
+            const node = streakNodes.current[slot];
+            streakSlotRef.current = (slot + 1) % STREAK_POOL_SIZE;
 
-            setStreaks((prev) => [...prev.slice(-24), streak]);
+            if (!node) {
+                return;
+            }
 
-            window.setTimeout(() => {
-                if (!mountedRef.current) {
-                    return;
-                }
-                setStreaks((prev) => prev.filter((item) => item.id !== id));
-            }, streak.life);
+            const thickness = Math.random() * 3 + 4;
+            const life = Math.random() * 220 + 320;
+            const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+            node.style.left = `${fromX}px`;
+            node.style.top = `${fromY}px`;
+            node.style.width = `${length}px`;
+            node.style.height = `${thickness}px`;
+            // Static for this streak; the animation only touches opacity and
+            // brightness, so it will not fight this transform.
+            node.style.transform = `translateY(-50%) rotate(${angle}deg)`;
+
+            streakAnimList[slot]?.cancel();
+            streakAnimList[slot] = node.animate(
+                [
+                    { opacity: 1, filter: "brightness(1.1)" },
+                    { opacity: 0, filter: "brightness(0.72)" },
+                ],
+                { duration: life, easing: "ease-out", fill: "forwards" },
+            );
         };
 
         const handleMove = (e: MouseEvent) => {
             targetRef.current.x = e.clientX;
             targetRef.current.y = e.clientY;
-            setVisible(true);
+            showCursor(true);
 
             const now = performance.now();
-            if (now - sparkTimerRef.current > 24) {
+
+            if (now - sparkTimerRef.current > SPARK_INTERVAL_MS) {
                 sparkTimerRef.current = now;
                 spawnSpark(e.clientX, e.clientY);
             }
 
-            if (previousRef.current && now - streakTimerRef.current > 16) {
+            if (previousRef.current && now - streakTimerRef.current > STREAK_INTERVAL_MS) {
                 streakTimerRef.current = now;
-                spawnStreak(previousRef.current.x, previousRef.current.y, e.clientX, e.clientY);
+                spawnStreak(
+                    previousRef.current.x,
+                    previousRef.current.y,
+                    e.clientX,
+                    e.clientY,
+                );
             }
 
             previousRef.current = { x: e.clientX, y: e.clientY };
         };
 
         const handleLeave = () => {
-            setVisible(false);
+            showCursor(false);
             previousRef.current = null;
         };
 
         const handleEnter = (e: MouseEvent) => {
-            setVisible(true);
+            showCursor(true);
             if (typeof e?.clientX === "number" && typeof e?.clientY === "number") {
                 targetRef.current.x = e.clientX;
                 targetRef.current.y = e.clientY;
@@ -159,8 +197,10 @@ export default function FireCursor() {
         };
 
         const animate = () => {
-            currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.24;
-            currentRef.current.y += (targetRef.current.y - currentRef.current.y) * 0.24;
+            currentRef.current.x +=
+                (targetRef.current.x - currentRef.current.x) * CURSOR_EASING;
+            currentRef.current.y +=
+                (targetRef.current.y - currentRef.current.y) * CURSOR_EASING;
 
             if (cursorRef.current) {
                 cursorRef.current.style.transform = `translate(${currentRef.current.x}px, ${currentRef.current.y}px)`;
@@ -180,6 +220,8 @@ export default function FireCursor() {
             window.removeEventListener("mouseleave", handleLeave);
             window.removeEventListener("mouseenter", handleEnter);
             window.cancelAnimationFrame(rafRef.current);
+            sparkAnimList.forEach((a) => a?.cancel());
+            streakAnimList.forEach((a) => a?.cancel());
         };
     }, [enabled]);
 
@@ -189,22 +231,17 @@ export default function FireCursor() {
 
     return (
         <div className="fire-cursor-layer" aria-hidden="true">
-            {streaks.map((streak) => (
+            {Array.from({ length: STREAK_POOL_SIZE }, (_, i) => (
                 <span
-                    key={streak.id}
+                    key={i}
                     className="fire-streak"
-                    style={{
-                        left: `${streak.x}px`,
-                        top: `${streak.y}px`,
-                        width: `${streak.length}px`,
-                        height: `${streak.thickness}px`,
-                        transform: `translateY(-50%) rotate(${streak.angle}deg)`,
-                        animationDuration: `${streak.life}ms`,
+                    ref={(node) => {
+                        streakNodes.current[i] = node;
                     }}
-                ></span>
+                />
             ))}
 
-            <div ref={cursorRef} className={`fire-cursor-outline ${visible ? "is-visible" : ""}`}>
+            <div ref={cursorRef} className="fire-cursor-outline">
                 <svg viewBox="0 0 24 32" className="fire-cursor-outline-svg">
                     <polygon
                         points="3,1 21,15 13,16 16,30 10,30 8,19 3,24"
@@ -217,22 +254,14 @@ export default function FireCursor() {
                 </svg>
             </div>
 
-            {sparks.map((spark) => (
+            {Array.from({ length: SPARK_POOL_SIZE }, (_, i) => (
                 <span
-                    key={spark.id}
+                    key={i}
                     className="fire-spark"
-                    style={
-                        {
-                            left: `${spark.x}px`,
-                            top: `${spark.y}px`,
-                            width: `${spark.size}px`,
-                            height: `${spark.size}px`,
-                            "--spark-drift-x": `${spark.driftX}px`,
-                            "--spark-drift-y": `${spark.driftY}px`,
-                            animationDuration: `${spark.life}ms`,
-                        } as React.CSSProperties
-                    }
-                ></span>
+                    ref={(node) => {
+                        sparkNodes.current[i] = node;
+                    }}
+                />
             ))}
         </div>
     );

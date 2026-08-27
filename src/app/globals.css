@@ -382,11 +382,16 @@ body {
   mix-blend-mode: screen;
 }
 
+/* The fade for .fire-streak and .fire-spark is driven from FireCursor.tsx via
+   the Web Animations API, not from here: the nodes are a reused pool, and
+   restarting a CSS animation on a reused node needs a forced reflow, which
+   WAAPI avoids. Both start invisible and are revealed by their animation. */
 .fire-streak {
   position: fixed;
   pointer-events: none;
   border-radius: 999px;
   transform-origin: left center;
+  opacity: 0;
   background:
     linear-gradient(90deg,
       rgba(255, 250, 199, 0.98) 0%,
@@ -398,40 +403,20 @@ body {
     0 0 8px rgba(255, 244, 167, 0.9),
     0 0 16px rgba(255, 171, 51, 0.85),
     0 0 24px rgba(255, 85, 0, 0.55);
-  animation: fireStreakFade ease-out forwards;
+  will-change: opacity;
 }
 
 .fire-spark {
   position: fixed;
   border-radius: 999px;
   pointer-events: none;
+  opacity: 0;
   background: radial-gradient(circle, #fff0c8 0%, #ffc14d 35%, #ff8a00 62%, rgba(255, 67, 0, 0.9) 100%);
   box-shadow: 0 0 10px rgba(255, 146, 0, 0.9);
-  animation-name: sparkFly;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
+  will-change: transform, opacity;
 }
 
-@keyframes fireStreakFade {
-  0% {
-    opacity: 1;
-    filter: brightness(1.1);
-  }
-
-  100% {
-    opacity: 0;
-    filter: brightness(0.72);
-  }
-}
-
-@keyframes sparkFly {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate(var(--spark-drift-x), var(--spark-drift-y)) scale(0.1);
-    opacity: 0;
-  }
-}
+/* fireStreakFade / sparkFly used to live here. They are now defined in
+   FireCursor.tsx as WAAPI keyframes, because the particle nodes are a reused
+   pool and CSS animations cannot be restarted on a reused node without forcing
+   a reflow. */
