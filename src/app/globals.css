@@ -97,11 +97,14 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
+  background: var(--color-primary);
   /* box-shadow rather than a filter-based shadow: identical on a small solid
      circle, but it does not give every particle its own filter surface. */
   box-shadow: 0 0 8px var(--color-primary);
-  animation: waveMove 6s infinite ease-in-out,
-    pulseColor 4s infinite ease-in-out;
+  /* pulseColor used to run here too, but it animated `background`, which cannot
+     be composited — it repainted all 25 particles every frame. waveMove already
+     supplies the motion. */
+  animation: waveMove 6s infinite ease-in-out;
   will-change: transform, opacity;
 }
 
@@ -232,20 +235,6 @@ body {
   100% {
     transform: translateY(20px) translateX(-10px) scale(0.7);
     opacity: 0.2;
-  }
-}
-
-@keyframes pulseColor {
-  0% {
-    background: var(--color-primary);
-  }
-
-  50% {
-    background: var(--color-secondary);
-  }
-
-  100% {
-    background: var(--color-primary);
   }
 }
 
