@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import useRandomParticles from "@/hooks/useRandomParticles";
+import useParallax from "@/hooks/useParallax";
 
 const links = [
     { name: "Home", to: "/" },
@@ -35,32 +36,11 @@ const Navbar = () => {
     // always a string. The fallback just leaves every link inactive.
     const pathname = usePathname() ?? "";
     const [open, setOpen] = useState(false);
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const particles = useRandomParticles(25, makeParticle);
-    const rafRef = useRef(0);
-
-    useEffect(() => {
-        const handleMove = (e: MouseEvent) => {
-            if (rafRef.current) {
-                return;
-            }
-
-            rafRef.current = window.requestAnimationFrame(() => {
-                const x = (e.clientX / window.innerWidth - 0.5) * 10;
-                const y = (e.clientY / window.innerHeight - 0.5) * 10;
-                setMousePos({ x, y });
-                rafRef.current = 0;
-            });
-        };
-
-        window.addEventListener("mousemove", handleMove, { passive: true });
-        return () => {
-            window.removeEventListener("mousemove", handleMove);
-            if (rafRef.current) {
-                window.cancelAnimationFrame(rafRef.current);
-            }
-        };
-    }, []);
+    // Written directly to the particle layer; keeping it in state re-rendered the
+    // whole navbar on every frame of pointer movement.
+    const particlesRef = useRef<HTMLDivElement>(null);
+    useParallax(particlesRef);
 
     const magneticHover = (e: React.MouseEvent<HTMLAnchorElement>) => {
         const { offsetX, target } = e.nativeEvent;
@@ -75,12 +55,7 @@ const Navbar = () => {
 
     return (
         <div className="relative w-full neon-edge bg-base-300/30 backdrop-blur-2xl border-b border-primary/40">
-            <div
-                className="nav-particles"
-                style={{
-                    transform: `translate(${mousePos.x}px, ${mousePos.y}px)`,
-                }}
-            >
+            <div className="nav-particles" ref={particlesRef}>
                 {particles.map((p, i) => (
                     <span key={i} style={p}></span>
                 ))}
