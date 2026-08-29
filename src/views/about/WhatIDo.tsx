@@ -5,16 +5,16 @@ import { motion } from "framer-motion";
 export default function WhatIDo() {
     const items = [
         {
-            title: "Product-Focused Frontend",
-            text: "React interfaces with reusable components, accessibility, and performance-focused UX."
+            title: "Backend Architecture",
+            text: "Domain-driven NestJS services with module boundaries that hold: transactional side effects behind ports, PostgreSQL schemas and Prisma migrations designed for workflows that outlive the feature."
         },
         {
-            title: "Backend and API Engineering",
-            text: "Node.js and Express services with authentication, REST APIs, and production-ready data models."
+            title: "Product Frontend",
+            text: "Next.js and TypeScript interfaces built for the people who maintain them next — reusable components, real accessibility, and performance treated as a requirement rather than a pass at the end."
         },
         {
-            title: "Delivery and Quality",
-            text: "Clear architecture decisions, maintainable code, and iterative shipping based on real user needs."
+            title: "Debugging Other People's Code",
+            text: "Reading an unfamiliar codebase until the cause is provable, not guessed — the skill behind fixes merged upstream into Twenty, Medusa and Saleor Dashboard."
         }
     ];
 
