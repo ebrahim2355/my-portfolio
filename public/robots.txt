@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://web-ebrahim-portfolio.vercel.app/sitemap.xml
+Sitemap: https://ebrahim.dev/sitemap.xml
