@@ -1,50 +1,78 @@
 [
     {
-        "name": "React",
-        "level": 90,
-        "category": "Frontend",
-        "icon": "react"
-    },
-    {
-        "name": "Tailwind CSS",
-        "level": 90,
-        "category": "Frontend",
-        "icon": "tailwind"
+        "name": "TypeScript",
+        "category": "Languages"
     },
     {
         "name": "JavaScript",
-        "level": 90,
-        "category": "Frontend",
-        "icon": ""
+        "category": "Languages"
     },
     {
-        "name": "Firebase",
-        "level": 90,
-        "category": "Frontend",
-        "icon": ""
+        "name": "Python",
+        "category": "Languages"
+    },
+    {
+        "name": "SQL",
+        "category": "Languages"
+    },
+    {
+        "name": "NestJS",
+        "category": "Backend"
     },
     {
         "name": "Node.js",
-        "level": 80,
-        "category": "Backend",
-        "icon": "node"
-    },
-    {
-        "name": "MongoDB",
-        "level": 85,
-        "category": "Database",
-        "icon": "mongodb"
+        "category": "Backend"
     },
     {
         "name": "Express.js",
-        "level": 75,
-        "category": "Backend",
-        "icon": "express"
+        "category": "Backend"
     },
     {
-        "name": "JWT",
-        "level": 75,
-        "category": "Backend",
-        "icon": ""
+        "name": "Django",
+        "category": "Backend"
+    },
+    {
+        "name": "Next.js",
+        "category": "Frontend"
+    },
+    {
+        "name": "React",
+        "category": "Frontend"
+    },
+    {
+        "name": "Tailwind CSS",
+        "category": "Frontend"
+    },
+    {
+        "name": "Framer Motion",
+        "category": "Frontend"
+    },
+    {
+        "name": "PostgreSQL",
+        "category": "Data"
+    },
+    {
+        "name": "Prisma ORM",
+        "category": "Data"
+    },
+    {
+        "name": "MongoDB",
+        "category": "Data"
+    },
+    {
+        "name": "Redis",
+        "category": "Data"
+    },
+    {
+        "name": "Docker",
+        "category": "Infrastructure"
+    },
+    {
+        "name": "CI/CD",
+        "category": "Infrastructure"
+    },
+    {
+        "name": "Git & GitHub",
+        "category": "Infrastructure"
     }
 ]

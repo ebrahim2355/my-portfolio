@@ -17,11 +17,12 @@ export interface Project {
     screenshots: string[];
 }
 
+// No self-scored `level`: a "React 90%" bar can't be verified and invites the
+// question of what the missing 10% is. The projects and merged PRs are the
+// evidence instead. `icon` went with it — nothing ever rendered one.
 export interface Skill {
     name: string;
-    level: number;
     category: string;
-    icon: string;
 }
 
 export interface Experience {
