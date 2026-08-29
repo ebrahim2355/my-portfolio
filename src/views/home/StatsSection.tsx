@@ -1,15 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { experience, projects, skills } from "@/data";
+import { careerStats } from "@/lib/profile";
 
 export default function StatsSection() {
-    const stats = [
-        { label: "Projects", value: projects.length },
-        { label: "Skills", value: skills.length },
-        { label: "Experience", value: experience.length },
-        { label: "Impact", value: projects.length + skills.length },
-    ];
+    // "Impact" used to be projects.length + skills.length, a number that stood
+    // for nothing. Every figure here is one someone could ask about.
+    const stats = careerStats;
 
     return (
         <motion.section
@@ -21,7 +18,7 @@ export default function StatsSection() {
             <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
                 {stats.map((s, i) => (
                     <motion.div
-                        key={i}
+                        key={s.label}
                         className="p-6 rounded-xl bg-base-200 glow-box border border-primary/30 text-center"
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
