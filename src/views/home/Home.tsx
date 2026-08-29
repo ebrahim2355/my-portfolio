@@ -27,8 +27,10 @@ export default function Home() {
             <HeroSection particles={particles} />
             <AboutSection />
             <SkillsSection />
-            <FeaturedProjects />
+            {/* Upstream work outranks my own projects as evidence, so it comes
+                first — a maintainer merged it, I didn't grade it myself. */}
             <OpenSourceSection />
+            <FeaturedProjects />
             <StatsSection />
         </main>
     );
