@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import OpenSource from "@/views/opensource/OpenSource";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
     title: "Open Source",
+    socialTitle: "Open Source — merged into Twenty, Medusa & Saleor Dashboard",
     description:
-        "Merged pull requests to major open-source projects including Twenty, Medusa, and Saleor Dashboard.",
-    alternates: { canonical: "/open-source" },
-};
+        "Five pull requests merged into Twenty, Medusa and Saleor Dashboard — the bug, the cause, and why each fix was scoped that way.",
+    path: "/open-source",
+});
 
 export default function Page() {
     return <OpenSource />;

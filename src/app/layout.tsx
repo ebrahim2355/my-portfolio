@@ -7,24 +7,13 @@ import FireCursor from "@/components/FireCursor";
 import ScrollToTop from "@/components/ScrollToTop";
 import ToasterProvider from "@/components/ToasterProvider";
 import { META_DESCRIPTION } from "@/lib/profile";
+import { SOCIAL_IMAGE } from "@/lib/metadata";
 
 const SITE_URL = "https://ebrahim.dev";
 const SITE_TITLE = "Ebrahim Ali | Full Stack Engineer — NestJS, Next.js, PostgreSQL";
 const SOCIAL_DESCRIPTION =
     "Full stack engineer building CRM and commerce platforms — with fixes merged into Twenty, Medusa and Saleor Dashboard.";
 
-// Raster, not the SVG favicon: no social crawler renders SVG, so every shared
-// link used to unfurl with a blank image. 1200x630 is the Open Graph standard.
-//
-// JPEG rather than PNG at 131KB against 1.1MB, for the same picture: WhatsApp
-// and Telegram give up on large images, and every crawler is quicker to fetch
-// a small one. The card is photographic, so there is nothing for PNG to win.
-const SOCIAL_IMAGE = {
-    url: "/og.jpg",
-    width: 1200,
-    height: 630,
-    alt: "MD. Ebrahim Ali — Full Stack Engineer — NestJS, Next.js, TypeScript, PostgreSQL — ebrahim.dev",
-};
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
