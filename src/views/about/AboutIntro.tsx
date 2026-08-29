@@ -26,9 +26,16 @@ export default function AboutIntro() {
                 <h2 className="text-3xl font-bold text-primary glow">Hi, I&apos;m Ebrahim</h2>
 
                 <p className="mt-4 text-base md:text-lg leading-relaxed text-base-content/80 max-w-6xl">
-                    I design and deliver end-to-end web products using React, Node.js, Express, and MongoDB. My
-                    focus is shipping maintainable code, intuitive interfaces, and reliable user flows that solve real
-                    product problems.
+                    I build the parts of a product that have to be right &mdash; catalogues, inventory, orders,
+                    payments and auth &mdash; on NestJS, PostgreSQL and Prisma, with Next.js on the front.
+                    Most of my work now is on a large-scale CRM and e-commerce platform where a single wrong
+                    assumption reaches real customers.
+                </p>
+
+                <p className="mt-4 text-base md:text-lg leading-relaxed text-base-content/80 max-w-6xl">
+                    The same habit shows up in the open source I contribute to: I read the codebase until I can
+                    explain <em>why</em> a bug happens, then fix the cause rather than the symptom. Maintainers at
+                    Twenty, Medusa and Saleor have reviewed and merged that work.
                 </p>
 
                 <div className="mt-6 flex gap-4 flex-wrap">

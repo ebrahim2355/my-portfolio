@@ -19,7 +19,7 @@ export default function AboutHeader() {
                 transition={{ delay: 0.1 }}
                 className="mt-4 text-base md:text-lg text-base-content/70 max-w-2xl mx-auto"
             >
-                MERN stack developer focused on scalable frontend systems, practical backend architecture, and measurable product impact.
+                Full stack engineer working on large-scale CRM and commerce systems &mdash; domain-driven NestJS services, PostgreSQL schemas that hold up under real workflows, and Next.js interfaces built to be maintained.
             </motion.p>
         </section>
     );
