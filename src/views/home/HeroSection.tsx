@@ -4,7 +4,8 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import myPhoto from "@/assets/my-photo.jpg";
-import { experience, projects, skills } from "@/data";
+import { openSource, projects } from "@/data";
+import { CORE_STACK, ROLE, TAGLINE, yearsBuilding } from "@/lib/profile";
 import useParallax from "@/hooks/useParallax";
 import { FaDownload } from "react-icons/fa6";
 
@@ -57,7 +58,13 @@ const Split = ({ text }: { text: string }) => (
 );
 
 export default function HeroSection({ particles }: HeroSectionProps) {
-    const projectsCount = projects.length; const skillsCount = skills.length; const experienceCount = experience.length;
+    // Was projects/skills/experience.length — the last of which rendered four
+    // roles as "4 year". These say what the work actually was instead.
+    const stats = [
+        { value: `${yearsBuilding}+`, label: "Years Building" },
+        { value: `${projects.length}`, label: "Projects Shipped" },
+        { value: `${openSource.length}`, label: "PRs Merged Upstream" },
+    ];
     // The pointer offset is written straight to this node, so moving the mouse
     // no longer re-renders the home page.
     const parallaxRef = useRef<HTMLDivElement>(null);
@@ -97,8 +104,18 @@ export default function HeroSection({ particles }: HeroSectionProps) {
                     <Split text={"Hi, I'm Ebrahim"} />
                 </motion.h1>
 
+                <motion.p
+                    className="mt-3 text-sm sm:text-base font-semibold tracking-wide text-secondary uppercase"
+                    variants={item}
+                >
+                    {ROLE}
+                    <span className="text-base-content/50 normal-case font-normal">
+                        {" "}&middot; {CORE_STACK.join(" · ")}
+                    </span>
+                </motion.p>
+
                 <motion.p className="mt-4 text-base sm:text-lg lg:text-xl text-base-content/80 max-w-lg" variants={item}>
-                    <Split text={"I build production-ready MERN applications with clean architecture and high-quality UI."} />
+                    <Split text={TAGLINE} />
                 </motion.p>
 
                 {/* Mobile photo placement: between intro text and action buttons */}
@@ -124,7 +141,22 @@ export default function HeroSection({ particles }: HeroSectionProps) {
                 </motion.div>
 
                 {/* quick stats */}
-                <motion.div className="mt-8 flex gap-6 flex-wrap justify-center md:justify-start" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }} > <div className="p-3 rounded-lg bg-base-200 glow-box border border-primary/30 min-w-[110px] text-center"> <div className="text-2xl md:text-3xl font-bold text-primary">{projectsCount}</div> <div className="text-sm text-base-content/70">Projects</div> </div> <div className="p-3 rounded-lg bg-base-200 glow-box border border-primary/30 min-w-[110px] text-center"> <div className="text-2xl md:text-3xl font-bold text-primary">{skillsCount}</div> <div className="text-sm text-base-content/70">Skills</div> </div> <div className="p-3 rounded-lg bg-base-200 glow-box border border-primary/30 min-w-[110px] text-center"> <div className="text-2xl md:text-3xl font-bold text-primary flex justify-center gap-2 items-center">{experienceCount} <span className="text-xl">year</span></div> <div className="text-sm text-base-content/70">Experience</div> </div> </motion.div>
+                <motion.div
+                    className="mt-8 flex gap-6 flex-wrap justify-center md:justify-start"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.9 }}
+                >
+                    {stats.map((s) => (
+                        <div
+                            key={s.label}
+                            className="p-3 rounded-lg bg-base-200 glow-box border border-primary/30 min-w-[130px] text-center"
+                        >
+                            <div className="text-2xl md:text-3xl font-bold text-primary">{s.value}</div>
+                            <div className="text-sm text-base-content/70">{s.label}</div>
+                        </div>
+                    ))}
+                </motion.div>
             </motion.div>
 
 
