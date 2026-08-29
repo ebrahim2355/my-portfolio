@@ -6,11 +6,12 @@ import NeonParticles from "@/components/NeonParticles";
 import FireCursor from "@/components/FireCursor";
 import ScrollToTop from "@/components/ScrollToTop";
 import ToasterProvider from "@/components/ToasterProvider";
+import { META_DESCRIPTION } from "@/lib/profile";
 
 const SITE_URL = "https://web-ebrahim-portfolio.vercel.app";
-const SITE_TITLE = "Ebrahim Ali | MERN Stack Developer Portfolio";
+const SITE_TITLE = "Ebrahim Ali | Full Stack Engineer — NestJS, Next.js, PostgreSQL";
 const SOCIAL_DESCRIPTION =
-    "Explore projects, skills, and experience from Ebrahim Ali's portfolio.";
+    "Full stack engineer building CRM and commerce platforms — with fixes merged into Twenty, Medusa and Saleor Dashboard.";
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
@@ -18,8 +19,7 @@ export const metadata: Metadata = {
         default: SITE_TITLE,
         template: "%s | Ebrahim Ali",
     },
-    description:
-        "Portfolio of Ebrahim Ali, a MERN stack developer building modern web applications with React, Tailwind, Node.js, and MongoDB.",
+    description: META_DESCRIPTION,
     robots: { index: true, follow: true },
     icons: {
         icon: [{ url: "/icon.svg", type: "image/svg+xml" }],

@@ -4,7 +4,7 @@ import About from "@/views/about/About";
 export const metadata: Metadata = {
     title: "About",
     description:
-        "MERN stack developer focused on scalable frontend systems, practical backend architecture, and measurable product impact.",
+        "Full stack engineer working on large-scale CRM and commerce systems — domain-driven NestJS services, PostgreSQL schemas, and Next.js interfaces built to be maintained.",
     alternates: { canonical: "/about" },
 };
 
