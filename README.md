@@ -5,6 +5,7 @@ A production-style personal portfolio built with Next.js and TypeScript, focused
 This portfolio highlights:
 - Modern UI engineering with reusable components
 - End-to-end project case studies (problem, role, decisions, impact)
+- Merged upstream contributions, each written up as bug, cause and scope
 - Responsive layouts for desktop and mobile
 - Contact workflow with EmailJS integration
 - Performance and UX improvements (static prerendering, lazy loading, accessibility updates)
@@ -81,12 +82,21 @@ The codebase is structured for maintainability with reusable components, page-le
   - Outcomes / impact
 - Screenshot viewer with fullscreen preview
 
-### 3.4 Contact Workflow
+### 3.4 Open Source Contributions
+- Data-driven contribution list from `opensource.json`
+- Filter controls per upstream project
+- Each entry carries the bug, its cause, and why the fix was scoped that way
+- Diff stats and a link to the merged pull request
+- Summary tiles (merged PRs, upstream projects, combined stars, lines shipped)
+  derived from the data, so adding an entry updates them
+- Home page previews the `featured` entries; `/open-source` lists every one
+
+### 3.5 Contact Workflow
 - React Hook Form for validation
 - EmailJS integration for sending messages
 - Toast feedback for status and errors
 
-### 3.5 Global Visual Effects
+### 3.6 Global Visual Effects
 - Neon particle background across pages
 - Animated navigation micro-interactions
 - Global custom fire cursor effect (desktop, reduced-motion aware)
@@ -202,6 +212,7 @@ App Router.
 - `/about` About
 - `/projects` Projects list
 - `/projects/:id` Project details (dynamic, prerendered per project)
+- `/open-source` Merged upstream contributions
 - `/contact` Contact
 - Anything else Custom 404 page (`src/app/not-found.tsx`)
 
