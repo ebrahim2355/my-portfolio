@@ -16,7 +16,7 @@ export const formatMerged = (iso: string) =>
         timeZone: "UTC",
     });
 
-// One entry per repo, so three Saleor PRs count as a single project.
+// One entry per repo, so four Saleor PRs count as a single project.
 const repoStars = new Map(openSource.map((c) => [c.repo, c.stars]));
 
 // Always derived from every contribution, including the ones the home page
