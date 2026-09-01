@@ -132,6 +132,7 @@ The codebase is structured for maintainability with reusable components, page-le
 my-portfolio2/
 ├─ public/
 │  ├─ resume.pdf
+│  ├─ og.jpg                     # social card, referenced by src/lib/metadata.ts
 │  ├─ robots.txt
 │  ├─ sitemap.xml
 │  └─ icon.svg
@@ -145,31 +146,41 @@ my-portfolio2/
 │  │  ├─ contact/page.tsx        # /contact
 │  │  ├─ projects/page.tsx       # /projects
 │  │  ├─ projects/[id]/page.tsx  # /projects/:id (prerendered per project)
+│  │  ├─ open-source/page.tsx    # /open-source
 │  │  └─ not-found.tsx           # 404
 │  ├─ assets/
 │  ├─ components/                # shared UI
 │  │  ├─ Navbar.tsx
 │  │  ├─ Footer.tsx
+│  │  ├─ ContributionCard.tsx    # one merged PR, shared by home and /open-source
 │  │  ├─ NeonParticles.tsx
 │  │  ├─ FireCursor.tsx
 │  │  ├─ ScrollToTop.tsx
 │  │  └─ ToasterProvider.tsx
-│  ├─ data/
+│  ├─ data/                      # content, as JSON
 │  │  ├─ index.ts                # typed exports of the JSON below
 │  │  ├─ projects.json
 │  │  ├─ skills.json
-│  │  └─ experience.json
+│  │  ├─ experience.json
+│  │  └─ opensource.json
+│  ├─ lib/                       # values derived from the data
+│  │  ├─ profile.ts              # role, tagline, bio, career stats
+│  │  ├─ opensource.ts           # formatters + contribution summary
+│  │  └─ metadata.ts             # per-page social metadata helper
 │  ├─ hooks/
-│  │  └─ useRandomParticles.ts
+│  │  ├─ useRandomParticles.ts
+│  │  └─ useParallax.ts
 │  ├─ types/
-│  │  └─ content.ts              # Project / Skill / Experience
+│  │  └─ content.ts              # Project / Skill / Experience / OpenSourceContribution
 │  └─ views/                     # page bodies + their sections
 │     ├─ home/
 │     ├─ about/
 │     ├─ projects/
+│     ├─ opensource/
 │     ├─ contact/
 │     └─ error/
 ├─ next.config.ts
+├─ eslint.config.mjs
 ├─ postcss.config.mjs
 ├─ tsconfig.json
 └─ package.json
