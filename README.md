@@ -493,8 +493,11 @@ Notes for the existing Vercel project:
 ## 17. Customization Guide
 
 ### 17.1 Update Personal Info
-- `src/views/home/HeroSection.tsx`
-- `src/views/about/AboutIntro.tsx`
+- `src/lib/profile.ts` — role, tagline, bio, meta description. These moved out of
+  the components so the hero, `/about` and the document metadata cannot drift
+  apart the way they did while the copy still said "MERN developer". Editing the
+  view is usually the wrong move.
+- `src/data/experience.json` — roles and timeline
 - `public/resume.pdf`
 
 ### 17.2 Add / Edit Projects
@@ -502,11 +505,23 @@ Notes for the existing Vercel project:
 - Add screenshots and case-study fields for better recruiter impact
 - New shapes should be reflected in `src/types/content.ts`
 
-### 17.3 Theme / Color Tweaks
+### 17.3 Add a Merged Contribution
+- `src/data/opensource.json`
+- Give it the next `id` for its rank; the list is ordered by reach, not merge
+  date, so a new entry may need the ones below it renumbered
+- Leave `featured` false unless it should displace one of the three the home page
+  previews
+- Update the count in `/open-source`'s `description` — it is the one figure on
+  that page written by hand, since a metadata export cannot read the list it
+  describes. Every other counter derives from the data
+- Star counts are a snapshot; refresh them from the GitHub API rather than
+  nudging them
+
+### 17.4 Theme / Color Tweaks
 - `src/app/globals.css`
 - DaisyUI theme block and custom utility classes
 
-### 17.4 Cursor Effect Tuning
+### 17.5 Cursor Effect Tuning
 - Flame behavior logic: `src/components/FireCursor.tsx`
 - Visual style and animations: `src/app/globals.css`
 
