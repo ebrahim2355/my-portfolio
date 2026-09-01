@@ -567,9 +567,10 @@ Potential next upgrades:
 
 ### Developer
 - Name: Ebrahim Ali
-- Role: MERN Stack Developer
+- Role: Full Stack Engineer
 
 ### Links
+- Portfolio: `https://ebrahim.dev`
 - LinkedIn: `https://linkedin.com/in/ebrahim235`
 - GitHub: `https://github.com/ebrahim2355`
 - Email: `web.ebrahimali@gmail.com`
