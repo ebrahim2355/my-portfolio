@@ -347,19 +347,45 @@ over unchanged; add the rules back to `globals.css` if you want the outline.
 
 ## 11. SEO and Metadata
 
-Configured with the Next.js Metadata API in `src/app/layout.tsx`:
+Site-level defaults come from the Next.js Metadata API in `src/app/layout.tsx`:
 - title (with a `%s | Ebrahim Ali` template for child routes)
 - meta description
+- `metadataBase` — the custom domain, which resolves every canonical and image URL
 - canonical link
-- Open Graph tags
-- Twitter card tags
+- Open Graph and Twitter card tags
 
-Each route adds its own `title`, `description`, and canonical via a `metadata`
-export; `/projects/[id]` builds them per project in `generateMetadata`.
+### 11.1 Per-Page Cards (`src/lib/metadata.ts`)
 
-Additional crawl support:
+Every route builds its own card through the `pageMetadata` helper, which returns
+title, description, canonical, Open Graph and Twitter blocks together.
+
+The helper exists because **Next.js does not merge `openGraph` field by field**.
+A page that declares one replaces the parent's entirely; a page that declares
+none inherits the parent's whole block, `url` included. Left alone, that made
+every route ship `og:url` pointing at the site root, so sharing `/open-source`
+told LinkedIn it was looking at the home page.
+
+`socialTitle` is a separate input because `title.template` only reaches
+`<title>`. Without it, `og:title` would be the bare page name — "Open Source"
+with nothing to say whose it is.
+
+`/projects/[id]` builds its metadata per project in `generateMetadata`.
+
+### 11.2 Social Card Image
+
+`public/og.jpg`, referenced through the shared `SOCIAL_IMAGE` constant:
+- JPEG, not PNG — the card is photographic, and WhatsApp and Telegram drop
+  previews on images that are too large
+- Served at the source export's resolution (1731x909) rather than downscaled to
+  the 1200x630 Open Graph minimum, because a card renders around 520px wide,
+  which is roughly 1040 device pixels on a 2x screen
+- Not the SVG favicon: no social crawler renders SVG, which is why every link to
+  the site once unfurled blank
+
+### 11.3 Crawl Support
 - `public/robots.txt`
-- `public/sitemap.xml`
+- `public/sitemap.xml` — lists `/`, `/about`, `/projects`, `/open-source` and
+  `/contact`. Both files hardcode the domain, so they need updating if it moves.
 
 ---
 
