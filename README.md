@@ -203,11 +203,28 @@ App Router.
   - fire cursor
 
 ### 6.2 Data-Driven Content
-- Projects, skills, and experience are loaded from local JSON.
+- Projects, skills, experience and open-source contributions are loaded from
+  local JSON.
 - `src/data/index.ts` re-exports them typed against `src/types/content.ts`.
 - Content updates can be made without changing component logic.
 
-### 6.3 Rendering
+### 6.3 Derived Values (`src/lib`)
+Anything computed from the content lives here rather than in the components, so
+two surfaces cannot disagree about the same fact:
+
+- `profile.ts` owns how the site describes me — role, tagline, bio, the current
+  role picked by matching "present" rather than taking `experience[0]`, and the
+  career stat tiles. Years building is derived from a start date, not from
+  `experience.length`, which had rendered four roles as "4 years".
+- `opensource.ts` owns the contribution summary and the star/date formatters.
+  Star counts render with a trailing `+` because the numbers are a snapshot, and
+  projects are deduplicated by repo so four Saleor PRs count as one project.
+- `metadata.ts` owns per-page social metadata (see section 11).
+
+Counters follow from the data: adding an entry to `opensource.json` updates the
+hero stat, the summary tiles and the `/about` figure with no other edit.
+
+### 6.4 Rendering
 - Every route is prerendered to static HTML at build time.
 - `/projects/[id]` uses `generateStaticParams`, so each project page is prebuilt.
 - Interactive sections are client components; code splitting is automatic.
