@@ -251,6 +251,9 @@ An unknown project id such as `/projects/999` renders an inline
 
 ## 8. Data Model
 
+All four files are typed in `src/types/content.ts`. A new field belongs there
+first, or `src/data/index.ts` will not expose it.
+
 ### 8.1 `projects.json` (extended case-study format)
 Each project supports:
 - `id`
@@ -265,15 +268,41 @@ Each project supports:
 - `duration`
 - `problem`
 - `decisions[]`
+- `features[]` (optional)
 - `highlights[]`
 - `outcomes[]`
 - `screenshots[]`
 
 ### 8.2 `skills.json`
-- Skill name, category, and level metadata.
+- `name` and `category` only.
+- There is deliberately no `level`: a self-scored "React 90%" cannot be verified
+  and invites the question of what the missing ten per cent is. The projects and
+  merged pull requests are the evidence instead. `icon` went the same way —
+  nothing ever rendered one.
+- `category` drives grouping and its render order comes from `CATEGORY_ORDER` in
+  `src/lib/profile.ts`. A category outside that list is appended, not dropped.
 
 ### 8.3 `experience.json`
-- Timeline item(s) for role, year range, and skill usage.
+- `year`, `role`, `company`, `location`, `type`, `description`, `highlights[]`,
+  `skillsUsed[]`.
+- The entry whose `year` matches "present" is treated as the current role, so
+  array order stays a layout detail rather than a claim.
+
+### 8.4 `opensource.json`
+One merged upstream pull request per entry:
+- `id` — serial position in the rendered list
+- `project`, `repo`, `repoUrl`, `projectTagline`
+- `stars` — snapshot of the repo's count, rendered with a trailing `+`
+- `featured` — surfaced in the home page preview
+- `title`, `prNumber`, `url`, `mergedAt`
+- `problem` and `solution` — the bug, its cause, and how the fix was scoped
+- `additions`, `deletions`, `changedFiles`
+- `tech[]`
+
+Order is deliberate — widest-reach project first, then by blast radius within a
+repo — not by merge date, which is why `id` is stored rather than inferred. The
+home preview renders the first three `featured` entries, so a fourth flag would
+render nowhere.
 
 ---
 
