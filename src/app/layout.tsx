@@ -7,9 +7,8 @@ import FireCursor from "@/components/FireCursor";
 import ScrollToTop from "@/components/ScrollToTop";
 import ToasterProvider from "@/components/ToasterProvider";
 import { META_DESCRIPTION } from "@/lib/profile";
-import { SOCIAL_IMAGE } from "@/lib/metadata";
+import { SITE_URL, SOCIAL_IMAGE } from "@/lib/metadata";
 
-const SITE_URL = "https://ebrahim.dev";
 const SITE_TITLE = "Ebrahim Ali | Full Stack Engineer — NestJS, Next.js, PostgreSQL";
 const SOCIAL_DESCRIPTION =
     "Full stack engineer building CRM and commerce platforms — with fixes merged into Twenty, Medusa and Saleor Dashboard.";

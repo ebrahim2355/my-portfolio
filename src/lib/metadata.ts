@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 
+// Shared with the sitemap, which has to spell out absolute URLs: `metadataBase`
+// only resolves the relative paths in page metadata, never a sitemap entry.
+export const SITE_URL = "https://ebrahim.dev";
+
 // Raster, not the SVG favicon: no social crawler renders SVG. Served at the
 // source export's full resolution rather than downscaled to 1200x630 — a card
 // is displayed around 520px wide on a 2x screen, so the extra pixels are what
