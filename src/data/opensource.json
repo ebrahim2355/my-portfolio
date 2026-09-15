@@ -39,6 +39,25 @@
     },
     {
         "id": 3,
+        "project": "Medusa",
+        "repo": "medusajs/medusa",
+        "repoUrl": "https://github.com/medusajs/medusa",
+        "stars": 36320,
+        "projectTagline": "The world's most flexible commerce platform for agents and developers.",
+        "featured": false,
+        "title": "fix(caching): reset the size accounting on a wildcard cache clear",
+        "prNumber": 16607,
+        "url": "https://github.com/medusajs/medusa/pull/16607",
+        "mergedAt": "2026-09-15T15:52:07Z",
+        "problem": "Medusa's in-memory caching provider tracks an approximate memory usage and refuses new entries once it passes `maxSize`. Every removal path kept that figure in sync through the per-key `del` and `expired` events — except clearing with the wildcard tag. `NodeCache.flushAll()` emits a single `flush` and never a per-key `del`, so `clear({ tags: [\"*\"] })` emptied the cache while leaving the usage exactly where it was. A cache that had crossed its limit then rejected every later write on an empty store, logging \"Cache is full\" for the rest of the process, and because the rejection happened before any accounting, nothing could ever bring the number back down.",
+        "solution": "Two lines in the wildcard branch reset the per-key size map and the usage counter alongside the tag index it already cleared, with a comment recording why the reset cannot come from the `del` handler. Added a provider unit test that fails without the fix, and explained why the existing max-size integration suite could never catch it: its runner builds a fresh provider for every test, so the accounting is always zero. The emitted `.d.ts` is byte-identical, so nothing about the public API moves.",
+        "additions": 60,
+        "deletions": 0,
+        "changedFiles": 3,
+        "tech": ["TypeScript", "Node.js", "Caching", "node-cache", "Jest"]
+    },
+    {
+        "id": 4,
         "project": "Saleor Dashboard",
         "repo": "saleor/saleor-dashboard",
         "repoUrl": "https://github.com/saleor/saleor-dashboard",
@@ -57,7 +76,7 @@
         "tech": ["TypeScript", "React", "Glide Data Grid", "GraphQL", "Vitest"]
     },
     {
-        "id": 4,
+        "id": 5,
         "project": "Saleor Dashboard",
         "repo": "saleor/saleor-dashboard",
         "repoUrl": "https://github.com/saleor/saleor-dashboard",
@@ -76,7 +95,7 @@
         "tech": ["TypeScript", "React", "Glide Data Grid", "DOM Events", "Playwright"]
     },
     {
-        "id": 5,
+        "id": 6,
         "project": "Saleor Dashboard",
         "repo": "saleor/saleor-dashboard",
         "repoUrl": "https://github.com/saleor/saleor-dashboard",
@@ -95,7 +114,7 @@
         "tech": ["TypeScript", "React", "WAI-ARIA", "axe-core", "Accessibility"]
     },
     {
-        "id": 6,
+        "id": 7,
         "project": "Saleor Dashboard",
         "repo": "saleor/saleor-dashboard",
         "repoUrl": "https://github.com/saleor/saleor-dashboard",
