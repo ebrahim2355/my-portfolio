@@ -3,7 +3,7 @@
         "id": 1,
         "title": "Zyplo - Team Workspace & Resource Management Platform",
         "description": "A collaborative workspace platform designed to help teams create and manage workspaces, organize resources, maintain structured documentation, and monitor activity through a unified dashboard. Zyplo focuses on improving team collaboration by centralizing workflows, resources, and communication in one platform.",
-        "image": "https://i.ibb.co.com/Xf79qftY/Screenshot-2026-03-28-234510.png",
+        "image": "/projects/zyplo-1.jpg",
         "tech": [
             "React",
             "Next.js",
@@ -54,15 +54,15 @@
             "Provided a scalable foundation for adding future collaboration tools and integrations."
         ],
         "screenshots": [
-            "https://i.ibb.co.com/Xf79qftY/Screenshot-2026-03-28-234510.png",
-            "https://i.ibb.co.com/LXL7NQW8/zyplo-six-vercel-app-dashboard-w-69a30710b2e7bc48157771f4.png"
+            "/projects/zyplo-1.jpg",
+            "/projects/zyplo-2.jpg"
         ]
     },
     {
         "id": 2,
         "title": "VELANO Fashion - Premium Fashion Ecommerce Platform",
         "description": "A full-stack fashion ecommerce platform for a Bangladesh-based premium clothing brand, combining a polished storefront, integrated admin operations, localized checkout, and membership-driven customer retention flows.",
-        "image": "https://i.ibb.co.com/wFVtPCDB/www-velanobd-com.png",
+        "image": "/projects/velano-1.jpg",
         "tech": [
             "Next.js",
             "React",
@@ -103,15 +103,15 @@
             "Created a scalable brand platform ready for future growth in catalog, loyalty, and marketing features."
         ],
         "screenshots": [
-            "https://i.ibb.co.com/wFVtPCDB/www-velanobd-com.png",
-            "https://i.ibb.co.com/Kjr0s22f/www-velanobd-com-2.png"
+            "/projects/velano-1.jpg",
+            "/projects/velano-2.jpg"
         ]
     },
     {
         "id": 3,
         "title": "AssetVerse - HR and Asset Management Platform",
         "description": "A full-stack platform for companies to manage employees, assets, requests, role-based access, analytics dashboards, and subscription packages.",
-        "image": "https://i.ibb.co.com/S4mMfZTM/assetverse-netlify-app-1.png",
+        "image": "/projects/assetverse-1.jpg",
         "tech": [
             "React",
             "Tailwind",
@@ -147,15 +147,15 @@
             "Shipped a scalable foundation ready for additional business modules."
         ],
         "screenshots": [
-            "https://i.ibb.co.com/S4mMfZTM/assetverse-netlify-app-1.png",
-            "https://i.ibb.co.com/KpwwsBbf/assetverse-netlify-app-2.png"
+            "/projects/assetverse-1.jpg",
+            "/projects/assetverse-2.jpg"
         ]
     },
     {
         "id": 4,
         "title": "ClubNest - Community Club and Event Platform",
         "description": "A community web app where users can discover, join, create, and manage clubs and local events.",
-        "image": "https://i.ibb.co.com/p6SRBfsr/Club-Nest-Homepage.png",
+        "image": "/projects/clubnest-1.jpg",
         "tech": [
             "React",
             "Tailwind",
@@ -190,14 +190,14 @@
             "Delivered a polished, production-style UX with strong frontend execution."
         ],
         "screenshots": [
-            "https://i.ibb.co.com/p6SRBfsr/Club-Nest-Homepage.png"
+            "/projects/clubnest-1.jpg"
         ]
     },
     {
         "id": 5,
         "title": "Cleanliness and Issue Reporting Portal",
         "description": "A civic reporting system where users submit local issues, track complaint status, and communicate with authorities.",
-        "image": "https://i.ibb.co.com/Y4qqyqJP/cleanliness-and-issue-web-app-3.png",
+        "image": "/projects/cleanliness-1.jpg",
         "tech": [
             "React",
             "Firebase",
@@ -228,15 +228,15 @@
             "Delivered a reusable civic-reporting architecture."
         ],
         "screenshots": [
-            "https://i.ibb.co.com/Y4qqyqJP/cleanliness-and-issue-web-app-3.png",
-            "https://i.ibb.co.com/1fFMsB7N/cleanliness-and-issue-web-app-4.png"
+            "/projects/cleanliness-1.jpg",
+            "/projects/cleanliness-2.jpg"
         ]
     },
     {
         "id": 6,
         "title": "Local Food Lovers Network",
         "description": "A community-driven platform where users discover local food spots, write reviews, and connect with nearby food enthusiasts.",
-        "image": "https://i.ibb.co.com/nsS3Gxcq/local-food-lovers-networ-7125e-web-app.png",
+        "image": "/projects/food-lovers-1.jpg",
         "tech": [
             "React",
             "Firebase",
@@ -267,14 +267,14 @@
             "Delivered a reusable social discovery foundation."
         ],
         "screenshots": [
-            "https://i.ibb.co.com/nsS3Gxcq/local-food-lovers-networ-7125e-web-app.png"
+            "/projects/food-lovers-1.jpg"
         ]
     },
     {
         "id": 7,
         "title": "Ember & Oak - Premium Restaurant Demo Website",
         "description": "A high-conversion restaurant web experience designed for a premium fine-dining brand, with cinematic motion, rich storytelling, menu exploration, reservation flows, and hospitality-focused conversion paths.",
-        "image": "https://i.ibb.co.com/r2LKpfL1/restaurant-eb-vercel-app.png",
+        "image": "/projects/ember-oak-1.jpg",
         "tech": [
             "Next.js",
             "React",
@@ -309,19 +309,19 @@
             "Created a flexible foundation that could be extended into a real restaurant marketing site or booking product."
         ],
         "screenshots": [
-            "https://i.ibb.co.com/r2LKpfL1/restaurant-eb-vercel-app.png",
-            "https://i.ibb.co.com/rGvrXjGT/restaurant-eb-vercel-app-1.png",
-            "https://i.ibb.co.com/39GbVv33/restaurant-eb-vercel-app-2.png",
-            "https://i.ibb.co.com/xqjwzSVV/restaurant-eb-vercel-app-press.png",
-            "https://i.ibb.co.com/xtV2p4J5/restaurant-eb-vercel-app-press-1.png",
-            "https://i.ibb.co.com/HfVprgX9/restaurant-eb-vercel-app-press-2.png"
+            "/projects/ember-oak-1.jpg",
+            "/projects/ember-oak-2.jpg",
+            "/projects/ember-oak-3.jpg",
+            "/projects/ember-oak-4.jpg",
+            "/projects/ember-oak-5.jpg",
+            "/projects/ember-oak-6.jpg"
         ]
     },
     {
         "id": 8,
         "title": "Study Abroad Counselor - Interactive University Recommendation Experience",
         "description": "An interactive study abroad guidance experience that walks students through a multilingual consultation flow, analyzes their preferences, and presents personalized university recommendations in a polished, assistant-style interface.",
-        "image": "https://i.ibb.co.com/5ZCqW1c/studyaboard-vercel-app.png",
+        "image": "/projects/study-abroad-1.jpg",
         "tech": [
             "Next.js",
             "React",
@@ -355,9 +355,9 @@
             "Created a reusable foundation for future expansion into a richer counseling or advisory platform."
         ],
         "screenshots": [
-            "https://i.ibb.co.com/5ZCqW1c/studyaboard-vercel-app.png",
-            "https://i.ibb.co.com/fVDDN7ym/studyaboard-vercel-app-1.png",
-            "https://i.ibb.co.com/rK87mGwM/studyaboard-vercel-app-2.png"
+            "/projects/study-abroad-1.jpg",
+            "/projects/study-abroad-2.jpg",
+            "/projects/study-abroad-3.jpg"
         ]
     }
 ]
