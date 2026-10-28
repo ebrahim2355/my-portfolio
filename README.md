@@ -218,7 +218,7 @@ two surfaces cannot disagree about the same fact:
   `experience.length`, which had rendered four roles as "4 years".
 - `opensource.ts` owns the contribution summary and the star/date formatters.
   Star counts render with a trailing `+` because the numbers are a snapshot, and
-  projects are deduplicated by repo so four Saleor PRs count as one project.
+  projects are deduplicated by repo so every Saleor PR counts as one project.
 - `metadata.ts` owns per-page social metadata (see section 11).
 
 Counters follow from the data: adding an entry to `opensource.json` updates the
