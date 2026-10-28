@@ -188,5 +188,24 @@
         "deletions": 1,
         "changedFiles": 3,
         "tech": ["TypeScript", "React", "GraphQL", "Jest"]
+    },
+    {
+        "id": 11,
+        "project": "Saleor Dashboard",
+        "repo": "saleor/saleor-dashboard",
+        "repoUrl": "https://github.com/saleor/saleor-dashboard",
+        "stars": 1046,
+        "projectTagline": "The GraphQL-powered dashboard for the Saleor commerce platform.",
+        "featured": false,
+        "title": "Rename Copilot instructions file so the repo checks out on Windows",
+        "prNumber": 7001,
+        "url": "https://github.com/saleor/saleor-dashboard/pull/7001",
+        "mergedAt": "2026-10-09T06:50:43Z",
+        "problem": "The repository tracked a file whose name was literally `*.instructions.md`, and Windows does not allow `*` in a file name. Every clone, pull, checkout and hard reset on Windows failed with `invalid path`, so contributors on Windows could not use the repository at all without sparse checkout or WSL.",
+        "solution": "Copilot reads custom instructions from any `.github/instructions/**/*.instructions.md` file, so the literal asterisk was never needed. It read like the glob from the documentation, copied in verbatim. Renamed the file and kept the instruction word for word. Also added `applyTo` front matter scoping it to the generated GraphQL schema and types it talks about, because without front matter Copilot does not apply an instructions file automatically. Checked the branch out into a fresh worktree on Windows 11 to confirm the checkout now completes.",
+        "additions": 5,
+        "deletions": 1,
+        "changedFiles": 2,
+        "tech": ["Git", "GitHub Copilot", "Windows", "Developer Tooling"]
     }
 ]
