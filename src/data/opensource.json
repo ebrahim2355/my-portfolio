@@ -150,5 +150,24 @@
         "deletions": 2,
         "changedFiles": 5,
         "tech": ["TypeScript", "React", "Zod", "React Hook Form"]
+    },
+    {
+        "id": 9,
+        "project": "Saleor Dashboard",
+        "repo": "saleor/saleor-dashboard",
+        "repoUrl": "https://github.com/saleor/saleor-dashboard",
+        "stars": 1046,
+        "projectTagline": "The GraphQL-powered dashboard for the Saleor commerce platform.",
+        "featured": false,
+        "title": "Clear draft order finalize errors once the data is filled in",
+        "prNumber": 6939,
+        "url": "https://github.com/saleor/saleor-dashboard/pull/6939",
+        "mergedAt": "2026-10-02T12:19:55Z",
+        "problem": "Clicking Finalize on an incomplete draft order marks what is missing: the billing address, the shipping address and the shipping method. Filling those details in did not clear the markers. They stayed on the page, with no way to dismiss them, until Finalize was clicked again. The bug had been reported in 2023 and still reproduced on `main`. The draft view read its errors straight off the last `draftOrderComplete` result, a snapshot of what was missing at the moment of the click that Apollo keeps until the mutation runs again. The view passed that snapshot to both the customer card and the order value card, so all three markers went stale together.",
+        "solution": "Filtered the snapshot against the draft as it stands now, at the one place it is read, so every consumer was fixed at once and nothing about how the errors render had to change. A small helper drops each error as soon as the order carries the data it reported missing. Codes that cannot be judged stale from client state, such as `SHIPPING_NOT_APPLICABLE` and line-level stock errors, deliberately pass through untouched, as does everything while the order is still loading. Seven unit tests pin the behaviour, and reverting the helper to a pass-through fails four of them.",
+        "additions": 197,
+        "deletions": 1,
+        "changedFiles": 4,
+        "tech": ["TypeScript", "React", "Apollo Client", "GraphQL", "Jest"]
     }
 ]
