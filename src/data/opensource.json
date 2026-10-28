@@ -169,5 +169,24 @@
         "deletions": 1,
         "changedFiles": 4,
         "tech": ["TypeScript", "React", "Apollo Client", "GraphQL", "Jest"]
+    },
+    {
+        "id": 10,
+        "project": "Saleor Dashboard",
+        "repo": "saleor/saleor-dashboard",
+        "repoUrl": "https://github.com/saleor/saleor-dashboard",
+        "stars": 1046,
+        "projectTagline": "The GraphQL-powered dashboard for the Saleor commerce platform.",
+        "featured": false,
+        "title": "Stop warning about shipping on drafts that don't need it",
+        "prNumber": 6941,
+        "url": "https://github.com/saleor/saleor-dashboard/pull/6941",
+        "mergedAt": "2026-10-02T12:19:04Z",
+        "problem": "A draft order made up entirely of non-shippable products, such as digital goods, has no shipping methods to offer. The draft page took that to mean the channel was misconfigured and warned that the draft could not be finalized because the country was not a shipping destination. Yet finalizing skips shipping validation entirely when an order requires no shipping, so the alert named a blocker that did not exist and sent people off to fix shipping zones that had nothing wrong with them. The issue had been open since January 2023. The alert judged shipping availability from an address and some lines alone, but an empty method list can mean either case, and only `isShippingRequired` tells them apart.",
+        "solution": "Gated the alert on the order actually requiring shipping. It is one condition: the inactive-channel and no-products alerts are untouched, and a shippable draft is warned exactly as before. The existing test for that alert turned out to pass only because the shared fixture sets `isShippingRequired: false` on the order while its lines say `true`, so it had been asserting the buggy path all along. It now sets the flag explicitly and keeps covering what it was written to cover, and two new tests fail against the unfixed component.",
+        "additions": 49,
+        "deletions": 1,
+        "changedFiles": 3,
+        "tech": ["TypeScript", "React", "GraphQL", "Jest"]
     }
 ]
