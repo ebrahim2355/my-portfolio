@@ -58,6 +58,25 @@
     },
     {
         "id": 4,
+        "project": "Medusa",
+        "repo": "medusajs/medusa",
+        "repoUrl": "https://github.com/medusajs/medusa",
+        "stars": 36975,
+        "projectTagline": "The world's most flexible commerce platform for agents and developers.",
+        "featured": false,
+        "title": "fix(core-flows): await the mutations performed in step compensations",
+        "prNumber": 16573,
+        "url": "https://github.com/medusajs/medusa/pull/16573",
+        "mergedAt": "2026-09-16T11:32:22Z",
+        "problem": "Medusa rolls back a failed workflow by running the compensation of every step that already completed, and its orchestrator awaits whatever each compensation returns. Two compensations in `@medusajs/core-flows` called their module mutation without awaiting it, one of them inside a function that was not even `async`. The orchestrator therefore marked the rollback complete while the restoring write was still in flight. A rollback that failed was never recorded against the transaction either: neither the caller nor the logs saw it, and it surfaced as an unhandled rejection instead. The draft-order step sits on a live path behind the admin route that changes a draft order's shipping method, so a failure in any of the tax-line or order-change steps after it ran the broken rollback.",
+        "solution": "Four lines: awaited the three dropped calls and made the draft-order compensation `async`. The evidence that these were omissions rather than intent was in the same files. Each step's own invoke function awaits the exact same call, and the two campaign promotion steps that superseded the second one already await theirs. Before dropping the test at the reviewer's request, ran a real workflow through the real orchestrator against the reverted fix and reproduced both failures: the run resolved before the rollback write landed, and a rejecting rollback never reached the transaction's compensation errors. The PR also states plainly that the second step is no longer wired into any workflow, so the change does not claim more reach than it has.",
+        "additions": 9,
+        "deletions": 4,
+        "changedFiles": 3,
+        "tech": ["TypeScript", "Node.js", "Workflow Engine", "Saga Pattern"]
+    },
+    {
+        "id": 5,
         "project": "Saleor Dashboard",
         "repo": "saleor/saleor-dashboard",
         "repoUrl": "https://github.com/saleor/saleor-dashboard",
@@ -76,7 +95,7 @@
         "tech": ["TypeScript", "React", "Glide Data Grid", "GraphQL", "Vitest"]
     },
     {
-        "id": 5,
+        "id": 6,
         "project": "Saleor Dashboard",
         "repo": "saleor/saleor-dashboard",
         "repoUrl": "https://github.com/saleor/saleor-dashboard",
@@ -95,7 +114,7 @@
         "tech": ["TypeScript", "React", "Glide Data Grid", "DOM Events", "Playwright"]
     },
     {
-        "id": 6,
+        "id": 7,
         "project": "Saleor Dashboard",
         "repo": "saleor/saleor-dashboard",
         "repoUrl": "https://github.com/saleor/saleor-dashboard",
@@ -114,7 +133,7 @@
         "tech": ["TypeScript", "React", "WAI-ARIA", "axe-core", "Accessibility"]
     },
     {
-        "id": 7,
+        "id": 8,
         "project": "Saleor Dashboard",
         "repo": "saleor/saleor-dashboard",
         "repoUrl": "https://github.com/saleor/saleor-dashboard",
