@@ -1,5 +1,81 @@
 [
     {
+        "id": 9,
+        "title": "CityCare - City Complaint & Service Request Platform",
+        "description": "A city complaint and service request platform for Dhaka. Citizens report problems on public property or book paid home services, pin the exact spot on a map and follow every step with a tracking code. Field staff work through their jobs by deadline, and city admins assign the work, watch the deadlines and read the numbers. Built solo end to end: a Next.js frontend and an Express, Prisma and PostgreSQL API.",
+        "image": "/projects/citycare-1.jpg",
+        "tech": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "TailwindCSS",
+            "Express.js",
+            "Node.js",
+            "PostgreSQL",
+            "Prisma",
+            "Redis",
+            "Stripe",
+            "TanStack Query",
+            "Zustand",
+            "React Hook Form",
+            "Zod",
+            "Leaflet",
+            "Recharts",
+            "Cloudinary",
+            "JWT",
+            "Playwright",
+            "Vitest",
+            "Docker"
+        ],
+        "live": "https://citycare-frontend-azure.vercel.app",
+        "github": "https://github.com/ebrahim2355/citycare-frontend",
+        "featured": true,
+        "role": "Solo Full-Stack Developer",
+        "duration": "Solo end-to-end build (frontend + API)",
+        "problem": "In many cities a citizen does not know where to report a problem, and after reporting nobody knows what happened to it. The city has no clear picture of which department is slow or which area has the most problems. CityCare gives every complaint one place to go, routes it to the right department automatically, puts a deadline on every category and escalates the work that misses it.",
+        "decisions": [
+            "Kept auth tokens out of browser JavaScript entirely: JWTs live in HTTP-only cookies, a Next.js proxy verifies and refreshes them on every request, and client calls go through a backend-for-frontend route that attaches the token and the real client IP.",
+            "Modelled the complaint lifecycle as an explicit workflow: every status change is checked against the allowed transitions and saved with its timeline entry, audit log row and notifications in one database transaction, so the inbox and the timeline always agree.",
+            "Locked rows in a fixed order for assignment, payment settlement and refunds, so parallel requests can neither break a staff member's capacity limit nor deadlock.",
+            "Made Stripe settlement idempotent: the success callback, the webhook and the verify endpoint can all arrive and the payment still completes exactly once, with an automatic refund when a paid request is rejected.",
+            "Protected citizens on the public map: only reports the citizen made public are shown, with no names, phone numbers or addresses, and coordinates rounded to about 10 meters.",
+            "Shared Redis caching and rate limits across serverless instances, with exact cache invalidation, and kept the API answering when Redis is down.",
+            "Rendered pages as Server Components that prefetch with the user's cookie and hydrate TanStack Query, so dashboards paint with data on first load and filters live in the URL."
+        ],
+        "features": [
+            "Four experiences in one app: the public site, citizens, field staff and city admins, across 40 pages.",
+            "A five-step report wizard with photos, a draggable map pin and a draft that survives a reload.",
+            "A live issue map with Leaflet and OpenStreetMap, and city maps for staff and admins with overdue work ringed in red.",
+            "Duplicate detection: the wizard finds the same problem within 300 meters and offers \"Me too\" instead of a second report.",
+            "Paid home services through Stripe Checkout, with automatic refunds.",
+            "A deadline for every category and a scheduled job that escalates missed work and notifies the team.",
+            "In-app notifications and a message thread on every report, with internal notes the citizen never sees.",
+            "Admin tools: assignment by workload or by hand, department transfers, CSV exports and a full audit log.",
+            "Public tracking by code, Google sign-in, light and dark mode and a Ctrl K command palette."
+        ],
+        "highlights": [
+            "Designed and built both halves alone: a Next.js 16 and React 19 frontend, and an Express 5, Prisma 7 and PostgreSQL API with more than 70 endpoints documented in Swagger and Postman.",
+            "Wrote the complaint workflow engine, assignment with per-staff capacity limits, and the deadline escalation job.",
+            "Built the map layer end to end: the location picker, a nearby search ranked by distance in the database, and privacy-safe public map feeds.",
+            "Wrote 466 API tests against real PostgreSQL and Redis, 98 frontend unit tests and 44 Playwright end-to-end tests covering the full report journey, accessibility audits with axe and a phone layout.",
+            "Set up delivery: GitHub Actions CI that runs the whole stack end to end, Docker images for both apps, Vercel deployment with a cron job, and Dependabot."
+        ],
+        "outcomes": [
+            "A complete civic workflow from report to fix: every complaint has an owner, a deadline, a timeline and a tracking code anyone can follow.",
+            "Over 600 automated tests run on every push, including the full citizen, admin and staff journey against the real API.",
+            "A live demo with one-click sign-in for every role, and a local setup that runs with Docker."
+        ],
+        "screenshots": [
+            "/projects/citycare-1.jpg",
+            "/projects/citycare-2.jpg",
+            "/projects/citycare-3.jpg",
+            "/projects/citycare-4.jpg",
+            "/projects/citycare-5.jpg",
+            "/projects/citycare-6.jpg",
+            "/projects/citycare-7.jpg"
+        ]
+    },
+    {
         "id": 1,
         "title": "Zyplo - Team Workspace & Resource Management Platform",
         "description": "A collaborative workspace platform designed to help teams create and manage workspaces, organize resources, maintain structured documentation, and monitor activity through a unified dashboard. Zyplo focuses on improving team collaboration by centralizing workflows, resources, and communication in one platform.",
